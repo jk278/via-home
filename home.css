@@ -1,0 +1,74 @@
+body {
+background-position:top center;
+background-size: 100% auto;
+}
+/* 展示内容整体 */
+#content {
+position: fixed;
+/* top可以调节显示内容距离手机顶部的距离 */
+top: 150px;
+}
+/* 搜索框 */
+.search_bar {
+/* 阴影效果 */
+box-shadow: 0 0 18px rgba(70,70,40,0.255);
+/* 模糊效果 */
+backdrop-filter: blur(5px);
+/* 背景色 */
+background-color: rgba(255,255,255,.100);
+/* 圆角 */
+border-radius: 8px;
+display: table;
+/* 宽度 */
+width: 85%;
+/* 高度 */
+height: 30px;
+max-width: 400px;
+margin: 20px auto;
+text-align:center;
+font-size:30px;
+border:1;
+outline:none;
+font-weight:560;
+-webkit-transition-duration: 0.2s;
+transition-duration: 0.2s;
+animation:search-bar 1s;
+}
+/* 搜索框的动画 */
+@keyframes search-bar {
+0% {max-width: 100px;}
+100% {max-width: 400px;}
+}
+/* 收纳所有收藏卡片的容器 */
+#box_container {
+width: 80%;
+-webkit-transition-duration: 0.4s;
+transition-duration: 0.4s;
+animation:box-container 1s;
+}
+/* 单个收藏卡片（包括图标和文字区域） */
+.box{
+margin:0;
+width:15%
+}
+/* 单个收藏卡片的图标区域 */
+.title{
+box-shadow: 0 0 18px rgba(70,70,40,0.255);
+backdrop-filter: blur(5px);
+background-color: rgba(255,255,255,.100);
+border-radius: 10px;
+}
+/* 用于设置卡片之间的间距（每行的第5列除外） */
+#box_container>.box:not(:nth-child(5n)){
+margin:0 6% 0 0;
+}
+/* 用于设置搜索时的词条联想框 */
+.bdSug_wpr {
+border-radius:0px 0px 15px 15px;
+border:0 none #FFFFFF !important;
+border-top:13px solid transparent !important;
+background: rgba(255,255,255,0.2) !important;
+backdrop-filter: blur(5px);
+transform: translate(-21.45%,0%);
+width:80% !important;
+}
