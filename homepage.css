@@ -351,8 +351,8 @@ body {
 
 /* 收纳所有收藏卡片的容器 */
 #box_container {
-    width: 85%;
-    margin-top: 100px;
+    width: 90%;
+    margin: 100px 15px 0 15px;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     animation: box-container 1s;
