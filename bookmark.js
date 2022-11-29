@@ -27,7 +27,7 @@ document.writeln("        <div class=\"box\">");
 document.writeln("            <p class=\"title\" aria-hidden=\"true\"></p>");
 document.writeln("            <div class=\"overlay\" style=\"background: url(\'icon/sparkk/menu.svg\') no-repeat;background-size: 80%;background-position:center center;\"></div>");
 document.writeln("            <p class=\"url\" aria-hidden=\"true\">via</p>");
-document.writeln("            <a href=\"file:///data/user/0/mark.via/files/homepage2.html\" title=\"via\"></a>");
+document.writeln("            <a href=\"file:///storage/emulated/0/Android/data/mark.via/files/homepage2.html\" title=\"via\"></a>");
 document.writeln("        </div>");
 document.writeln("");
 document.writeln("        <div style=\"text-align: center;margin-bottom:20px;\">");
