@@ -351,8 +351,8 @@ body {
 
 /* 收纳所有收藏卡片的容器 */
 #box_container {
-    width: 90%;
-    margin: 100px 15px 0 15px;
+    width: 85%;
+    margin-top: 100px;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     animation: box-container 1s;
@@ -360,7 +360,7 @@ body {
 
 /* 单个收藏卡片（包括图标和文字区域） */
 .box:not(:nth-child(4n)) {
-    margin: 0 17% 5% 0 !important;
+    margin: 0 10% 5% 0 !important;
     width: 1;
     
 }
