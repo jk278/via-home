@@ -1,0 +1,407 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+    -webkit-focus-ring-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    min-height: 100%;
+    max-width: 100%;
+    width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+#gesture-indicator {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow: hidden;
+    word-break: break-all
+}
+
+#content {
+    position: absolute;
+    max-width: 600px;
+    width: 100%;
+}
+
+#content {
+    top: 25%;
+    transition: 0.14s;
+}
+
+@media only screen and (min-height:250px) {
+    #content {
+        top: 62px
+    }}
+
+@media only screen and (min-height:350px) {
+    #content {
+        top: 87px
+    }}
+
+@media only screen and (min-height:450px) {
+    #content {
+        top: 135px
+    }}
+
+@media only screen and (min-height:650px) {
+    #content {
+        top: 195px
+    }}
+
+@media only screen and (min-height:850px) {
+    #content {
+        top: 255px
+    }}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow: auto;
+    text-decoration: none;
+    color: #fafafa;
+}
+
+img.smaller {
+    height: 72px;
+    border-radius: 0px;
+    object-fit: cover;
+}
+
+span {
+    display: block;
+    overflow: hidden;
+    padding-left: 5px;
+    vertical-align: middle;
+}
+
+.search_part {
+    margin-bottom: 20px;
+}
+
+.search.icon {
+    color: #fafafa;
+    width: 12px;
+    height: 12px;
+    border: solid 2px currentColor;
+    border-radius: 100%;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    text-align: center;
+    margin: auto;
+}
+
+.search.icon:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 3px;
+    height: 5px;
+    width: 2px;
+    background-color: currentColor;
+}
+
+.search_bar {
+    display: table;
+    vertical-align: middle;
+    width: 90%;
+    max-width: 600px;
+    margin: 15px auto 0;
+}
+
+#search_input {
+    height: 46px;
+    padding: 0 12px;
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    background-color: transparent;
+}
+
+#search_submit {
+    display: none;
+    outline: none;
+    height: 46px;
+    width: 56px;
+    float: right;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    background-color: transparent;
+    padding: 0 10px;
+}
+
+/* 搜索框 */
+.search_bar {
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+#search_input,#search_submit {
+    color: #fafafa;
+}
+
+.bdSug_wpr {
+    overflow-y: scroll !important;
+    max-height: 30% !important;
+    background: rgba(51, 51, 51, 0.1) !important;
+    backdrop-filter: blur(10px);
+    border: 0px solid !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    border-radius: 0 0 24px 24px;
+}
+
+/* 搜索词条联想框列表 */
+.bdSug_wpr table {
+    background: none !important;
+}
+.bdSug_wpr td {
+    margin: 4px !important;
+    padding: 10px !important;
+    color: #fafafa;
+    background: none;
+}
+
+.bdSug_sd {
+    height: 0px !important;
+}
+
+.bdSug_app {
+    display: none !important;
+}
+
+/* 书签部分 */
+#bookmark_part {
+    text-align: center;
+    max-width: 600px;
+    background-color: transparent;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 0px;
+}
+
+#box_container {
+    text-align: left;
+    margin: 0 auto;
+    font-size: 0;
+}
+
+.box {
+    margin: 4px 9px 4px;
+    width: 46px;
+    border: 0;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+/* 设置卡片图片 */
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 0px;
+    width: 46px;
+    height: 46px;
+}
+/* 设置卡片链接 */
+.box a {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+/* 文字卡片 */
+.title {
+    border-radius: 0px;
+    color: #fafafa;
+    width: 46px;
+    line-height: 46px;
+    height: 46px;
+    font-size: 15px;
+}
+
+/* 设置卡片的名称 */
+.url {
+    margin: 2px 0 0;
+    width: 46px;
+    height: 20px;
+    line-height: 20px;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: clip;
+    -o-text-overflow: clip;
+    ms-text-overflow: clip;
+    color: #fafafa;
+    font-size: 10px;
+}
+/* 自适应 box_container */
+@media only screen and (min-width:128px) {
+    #box_container {
+        width: 64px
+    }}
+
+@media only screen and (min-width:192px) {
+    #box_container {
+        width: 128px
+    }}
+
+@media only screen and (min-width:256px) {
+    #box_container {
+        width: 192px
+    }}
+
+@media only screen and (min-width:320px) {
+    #box_container {
+        width: 256px
+    }}
+
+@media only screen and (min-width:384px) {
+    #box_container {
+        width: 320px
+    }}
+
+@media only screen and (min-width:448px) {
+    #box_container {
+        width: 384px
+    }}
+
+@media only screen and (min-width:512px) {
+    #box_container {
+        width: 448px
+    }}
+
+@media only screen and (min-width:576px) {
+    #box_container {
+        width: 512px
+    }}
+
+.sort-ghost {
+    opacity: 0.3;
+}
+
+/* ----------------------------- */
+/* Rule1 : 修改 css 顺序，会影响效果 */
+/* ----------------------------- */
+
+/* 设置主体 */
+body {
+    /*height: 2400px;添加这个，背景可以上下滑动*/
+    background: #000000 url("bg/wildness.jpg") no-repeat top center;
+    background-size: 100% !important;
+}
+
+/* 展示内容整体 */
+#content {
+    position: fixed;
+    /* top调节显示内容到顶部的距离 */
+    top: 200px;
+}
+
+/* 搜索框 */
+.search_bar {
+    /* 阴影效果 */
+    box-shadow: 0 0 18px rgba(70,70,40,0.255);
+    /* 模糊效果 */
+    backdrop-filter: blur(5px);
+    /* 背景色 */
+    background-color: rgba(255,255,255,.100);
+    /* 圆角 */
+    border-radius: 8px;
+    display: table;
+    /* 宽度 */
+    width: 85%;
+    /* 高度 */
+    height: 30px;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 30px;
+    border: 1;
+    outline: none;
+    font-weight: 560;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    animation: search-bar 1s;
+}
+
+/* 搜索框的动画 */
+@keyframes search-bar {
+    0% {
+        max-width: 100px;
+    }
+    100% {
+        max-width: 400px;
+    }
+}
+
+/* 收纳所有收藏卡片的容器 */
+#box_container {
+    width: 73.1%;
+    margin-top: 100px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    animation: box-container 1s;
+}
+
+/* 单个收藏卡片（包括图标和文字区域） */
+.box {
+    margin: 0;
+    width: 1;
+}
+
+/* 单个收藏卡片的文字图标 */
+.title {
+    font-weight: bold;
+    font-size: 22px;
+    box-shadow: 0 0 18px rgba(70,70,40,0.255);
+    backdrop-filter: blur(5px);
+    background-color: rgba(255,255,255,.100);
+    border-radius: 8px;
+}
+
+/* 设置卡片之间的间距（第4列除外） */
+#box_container>.box:not(:nth-child(4n)) {
+    margin: 0 10% 0 0;
+}
+
+/* 用于设置搜索时的词条联想框 */
+.bdSug_wpr {
+    border-radius: 0px 0px 15px 15px;
+    border: 0 none #FFFFFF !important;
+    border-top: 13px solid transparent !important;
+    background: rgba(255,255,255,0.2) !important;
+    backdrop-filter: blur(5px);
+    transform: translate(-21.45%,0%);
+    width: 80% !important;
+}
+
+/* input */
+input.search {
+    margin-left: -10px;
+    width: 105% !important;
+}
+
+/* 放大镜底层 */
+#search_submit {
+    width: 39px;
+ }
+ 
