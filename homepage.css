@@ -85,7 +85,7 @@ span {
     display: block;
     overflow: hidden;
     padding-left: 5px;
-    vertical-align: middle;
+    /*vertical-align: middle;*/
 }
 
 .search_part {
@@ -151,6 +151,29 @@ span {
     border-radius: 24px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
+    /* 阴影效果 */
+    box-shadow: 0 0 18px rgba(70,70,40,0.255);
+    /* 模糊效果 */
+    backdrop-filter: blur(5px);
+    /* 背景色 */
+    background-color: rgba(255,255,255,.100);
+    /* 圆角 */
+    border-radius: 8px;
+    display: table;
+    /* 宽度 */
+    width: 85%;
+    /* 高度 */
+    height: 30px;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 30px;
+    border: 1;
+    outline: none;
+    font-weight: 560;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    animation: search-bar 1s;
 }
 
 #search_input,#search_submit {
@@ -249,7 +272,7 @@ span {
     overflow: hidden;
     text-overflow: clip;
     -o-text-overflow: clip;
-    ms-text-overflow: clip;
+    /*ms-text-overflow: clip;*/
     color: #fafafa;
     font-size: 10px;
 }
@@ -316,33 +339,6 @@ body {
     top: 200px;
 }
 
-/* 搜索框 */
-.search_bar {
-    /* 阴影效果 */
-    box-shadow: 0 0 18px rgba(70,70,40,0.255);
-    /* 模糊效果 */
-    backdrop-filter: blur(5px);
-    /* 背景色 */
-    background-color: rgba(255,255,255,.100);
-    /* 圆角 */
-    border-radius: 8px;
-    display: table;
-    /* 宽度 */
-    width: 85%;
-    /* 高度 */
-    height: 30px;
-    max-width: 400px;
-    margin: 20px auto;
-    text-align: center;
-    font-size: 30px;
-    border: 1;
-    outline: none;
-    font-weight: 560;
-    -webkit-transition-duration: 0.2s;
-    transition-duration: 0.2s;
-    animation: search-bar 1s;
-}
-
 /* 搜索框的动画 */
 @keyframes search-bar {
     0% {
@@ -355,7 +351,7 @@ body {
 
 /* 收纳所有收藏卡片的容器 */
 #box_container {
-    width: 73.1%;
+    width: 85%;
     margin-top: 100px;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
@@ -363,9 +359,10 @@ body {
 }
 
 /* 单个收藏卡片（包括图标和文字区域） */
-.box {
-    margin: 0;
+.box:not(:nth-child(4n)) {
+    margin: 0 17% 5% 0 !important;
     width: 1;
+    
 }
 
 /* 单个收藏卡片的文字图标 */
@@ -378,10 +375,7 @@ body {
     border-radius: 8px;
 }
 
-/* 设置卡片之间的间距（第4列除外） */
-#box_container>.box:not(:nth-child(4n)) {
-    margin: 0 10% 0 0;
-}
+
 
 /* 用于设置搜索时的词条联想框 */
 .bdSug_wpr {
