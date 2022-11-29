@@ -42,8 +42,45 @@
         <script type="text/javascript" src="random-sentence.js"></script>
 
         <!-- 注意：引入 html 后主页面的 css 样式不适用于被引入页面。只在本页面生效，引入文件整体适用，但引入文件内容不适用。 js 写入不一样。-->
-        <!-- 书签 html 转 js -->
-        <script type="text/javascript" src="bookmark.js"></script>
+        <!-- 书签 html 转 js 太麻烦了！-->
+        <div id="bookmark_part">
+            <link rel="stylesheet" href="icon/svg.css">
+            <div id="box_container">
+        
+                <div class="box">
+                    <p class="title" aria-hidden="true"></p>
+                    <div class="overlay" style="background: url('icon/sparkk/star.svg') no-repeat;background-size: 80%;background-position:center center;"></div>
+                    <p class="url" aria-hidden="true">书签</p>
+                    <a href="folder://" onclick="" title="书签"></a>
+                </div>
+                
+                <div class="box">
+                    <p class="title" aria-hidden="true"></p>
+                    <div class="overlay" style="background: url('icon/sparkk/align-left.svg') no-repeat;background-size: 80%;background-position:center center;"></div>
+                    <p class="url" aria-hidden="true">历史</p>
+                    <a href="history://" onclick="" title="历史"></a>
+                </div>
+        
+                <div class="box">
+                    <p class="title" aria-hidden="true"></p>
+                    <div class="overlay" style="background: url('icon/sparkk/grid.svg') no-repeat;background-size: 80%;background-position:center center;"></div>
+                    <p class="url" aria-hidden="true">Infinity</p>
+                    <a href="https://m.inftab.com/#/" title="Infinity"></a>
+                </div>
+        
+                <div class="box">
+                    <p class="title" aria-hidden="true"></p>
+                    <div class="overlay" style="background: url('icon/sparkk/menu.svg') no-repeat;background-size: 80%;background-position:center center;"></div>
+                    <p class="url" aria-hidden="true">via</p>
+                    <a href="file:///data/user/0/mark.via/files/homepage2.html" title="via"></a>
+                </div>
+        
+                <div style="text-align: center;margin-bottom:20px;">
+                    <font color="#757575" size="5px">―·❀·―</font>
+                </div>
+        
+            </div>
+        </div>       
 
         <!-- hitokoto 一言 脚本 -->
         <span style="font-size: 14px;color: #BEBEBE;font-weight: 100;text-align: center">
