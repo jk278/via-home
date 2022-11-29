@@ -38,7 +38,7 @@ document.writeln("            <p class=\"url\" aria-hidden=\"true\">");
 document.writeln("                导航");
 document.writeln("            </p>");
 document.writeln("            <a href=\"\" onclick=\"window.via.cmd(514)\" title=\"导航\"></a>");
-document.writeln("            <select name=\"\" onchange=\"javascript:location.href=this.value;\">");
+document.writeln("            <select class=\"box\" name=\"导航\" onchange=\"javascript:location.href=this.value;\">");
 document.writeln("                <option value=\"http://www.zol.com.cn\" selected=\"selected\">zol</option>");
 document.writeln("                <option value=\"http://www.163.com\">163</option>");
 document.writeln("                <option value=\"http://www.sina.com\">sina</option>");
