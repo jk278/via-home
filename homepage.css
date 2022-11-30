@@ -80,12 +80,10 @@ img.smaller {
     border-radius: 0px;
     object-fit: cover;
 }
-
+/* 影响搜索框内部排布 */
 span {
     display: block;
     overflow: hidden;
-    padding-left: 5px;
-    /*vertical-align: middle;*/
 }
 
 .search_part {
@@ -117,7 +115,7 @@ span {
 .search_bar {
     display: table;
     vertical-align: middle;
-    width: 90%;
+    width: 85%;
     max-width: 600px;
     margin: 15px auto 0;
 }
@@ -131,12 +129,12 @@ span {
     font-size: 15px;
     background-color: transparent;
 }
-
+/* 放大镜底层 */
 #search_submit {
     display: none;
     outline: none;
     height: 46px;
-    width: 56px;
+    width: 39px;
     float: right;
     font-size: 15px;
     font-weight: bold;
@@ -145,10 +143,15 @@ span {
     padding: 0 10px;
 }
 
+/* 设置主体 */
+body {
+    background: url("bg/forest.webp") no-repeat top center;
+    background-size: 120%;
+}
 /* 搜索框 */
 .search_bar {
     border: 1px solid rgba(255, 255, 255, 0.24);
-    border-radius: 24px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     /* 阴影效果 */
@@ -156,38 +159,34 @@ span {
     /* 模糊效果 */
     backdrop-filter: blur(5px);
     /* 背景色 */
-    background-color: rgba(255,255,255,.100);
-    /* 圆角 */
-    border-radius: 8px;
-    display: table;
-    /* 宽度 */
-    width: 85%;
-    /* 高度 */
-    height: 30px;
-    max-width: 400px;
-    margin: 20px auto;
-    text-align: center;
     font-size: 30px;
-    border: 1;
-    outline: none;
-    font-weight: 560;
-    -webkit-transition-duration: 0.2s;
     transition-duration: 0.2s;
     animation: search-bar 1s;
+}
+/* 搜索框的动画 */
+@keyframes search-bar {
+    0% {
+        max-width: 100px;
+    }
+    100% {
+        max-width: 600px;
+    }
 }
 
 #search_input,#search_submit {
     color: #fafafa;
 }
-
+/* 用于设置搜索时的词条联想框 */
 .bdSug_wpr {
     overflow-y: scroll !important;
     max-height: 30% !important;
-    background: rgba(51, 51, 51, 0.1) !important;
     backdrop-filter: blur(10px);
     border: 0px solid !important;
-    border-color: rgba(255, 255, 255, 0.15) !important;
-    border-radius: 0 0 24px 24px;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 0 0 15px 15px;
+    border-top: 13px solid transparent !important;
+    transform: translate(-21.45%,0%);
+    width: 80% !important;
 }
 
 /* 搜索词条联想框列表 */
@@ -200,11 +199,9 @@ span {
     color: #fafafa;
     background: none;
 }
-
 .bdSug_sd {
     height: 0px !important;
 }
-
 .bdSug_app {
     display: none !important;
 }
@@ -218,11 +215,13 @@ span {
     padding: 0;
     border-radius: 0px;
 }
-
+/* 收纳所有收藏卡片的容器 */
 #box_container {
     text-align: left;
-    margin: 0 auto;
-    font-size: 0;
+    margin: 100px auto;
+    transition-duration: 0.4s;
+    animation: box-container 1s;
+    background: black;
 }
 
 .box {
@@ -233,7 +232,14 @@ span {
     display: inline-block;
     text-align: center;
 }
-
+/* 设置卡片链接 */
+.box a {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
 /* 设置卡片图片 */
 .overlay {
     position: absolute;
@@ -243,27 +249,23 @@ span {
     width: 46px;
     height: 46px;
 }
-/* 设置卡片链接 */
-.box a {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
 /* 文字卡片 */
 .title {
-    border-radius: 0px;
+    border-radius: 8px;
     color: #fafafa;
     width: 46px;
     line-height: 46px;
     height: 46px;
-    font-size: 15px;
-}
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 0 18px rgba(70,70,40,0.255);
+    backdrop-filter: blur(5px);
+    background-color: rgba(255,255,255,.100);
 
+}
 /* 设置卡片的名称 */
 .url {
-    margin: 2px 0 0;
+    margin: 2px auto;
     width: 46px;
     height: 20px;
     line-height: 20px;
@@ -272,7 +274,6 @@ span {
     overflow: hidden;
     text-overflow: clip;
     -o-text-overflow: clip;
-    /*ms-text-overflow: clip;*/
     color: #fafafa;
     font-size: 10px;
 }
@@ -321,81 +322,8 @@ span {
     opacity: 0.3;
 }
 
-/* ----------------------------- */
-/* Rule1 : 修改 css 顺序，会影响效果 */
-/* ----------------------------- */
-
-/* 设置主体 */
-body {
-    /*height: 2400px;添加这个，背景可以上下滑动*/
-    background: #000000 url("bg/wildness.jpg") no-repeat top center;
-    background-size: 100% !important;
-}
-
-/* 展示内容整体 */
+/* 删除此项或前移，都会使输入框随键盘上移 */
 #content {
-    position: fixed;
     /* top调节显示内容到顶部的距离 */
     top: 200px;
 }
-
-/* 搜索框的动画 */
-@keyframes search-bar {
-    0% {
-        max-width: 100px;
-    }
-    100% {
-        max-width: 400px;
-    }
-}
-
-/* 收纳所有收藏卡片的容器 */
-#box_container {
-    width: 85%;
-    margin-top: 100px;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-    animation: box-container 1s;
-}
-
-/* 单个收藏卡片（包括图标和文字区域） */
-.box:not(:nth-child(4n)) {
-    margin: 0 10% 5% 0 !important;
-    width: 1;
-    
-}
-
-/* 单个收藏卡片的文字图标 */
-.title {
-    font-weight: bold;
-    font-size: 22px;
-    box-shadow: 0 0 18px rgba(70,70,40,0.255);
-    backdrop-filter: blur(5px);
-    background-color: rgba(255,255,255,.100);
-    border-radius: 8px;
-}
-
-
-
-/* 用于设置搜索时的词条联想框 */
-.bdSug_wpr {
-    border-radius: 0px 0px 15px 15px;
-    border: 0 none #FFFFFF !important;
-    border-top: 13px solid transparent !important;
-    background: rgba(255,255,255,0.2) !important;
-    backdrop-filter: blur(5px);
-    transform: translate(-21.45%,0%);
-    width: 80% !important;
-}
-
-/* input */
-input.search {
-    margin-left: -10px;
-    width: 105% !important;
-}
-
-/* 放大镜底层 */
-#search_submit {
-    width: 39px;
- }
- 
