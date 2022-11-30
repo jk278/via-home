@@ -71,7 +71,7 @@
                     <p class="url" aria-hidden="true">
                         Infinity
                     </p>
-                    <a href="https://m.inftab.com/#/" title="Infinity"></a>
+                    <a href="https://m.inftab.com/#/" onclick="" title="Infinity"></a>
                 </div>
 
                 <div class="box">
@@ -80,25 +80,17 @@
                     <p class="url" aria-hidden="true">
                         via
                     </p>
-                    <a href="file:///data/user/0/mark.via/files/homepage2.html" title="via"></a>
+                    <a href="file:///data/user/0/mark.via/files/homepage2.html" onclick="" title="via"></a>
                 </div>
-
-                <div style="text-align: center;margin-bottom:20px;">
-                    <font color="#757575" size="5px">―·❀·―</font>
-                </div>
-
             </div>
+            <div class="divide">―·❀·―</div>
         </div>
 
         <!-- hitokoto 一言 脚本 -->
-        <span style="font-size: 14px;color: #BEBEBE;font-weight: 100;text-align: center">
+        <div id="hitokoto">
             <script src=" https://v1.hitokoto.cn/?encode=js&select=%23hitokoto&max_length=20" defer></script>
-            <div id="hitokoto">
-                <script>
-                    hitokoto()
-                </script>
-            </div>
-        </span>
+            <script>hitokoto()</script>
+        </div>
 
         <!-- 处理搜索状态 默认脚本 -->
         <script>
