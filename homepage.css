@@ -45,6 +45,7 @@ body {
     width: 100%;
     height: 36.5%;
 }
+
 .header {
     width: 90%;
     margin: 16px auto 0 auto;
@@ -55,15 +56,17 @@ body {
     /* 模糊效果 */
     backdrop-filter: blur(10px);
     /* 阴影效果 */
-    box-shadow: 0 0 18px rgba(70,70,40,0.51);
+    box-shadow: 0 0 18px rgba(70, 70, 40, 0.51);
     transition-duration: 0.2s;
     animation: header 1s;
 }
+
 @keyframes header {
     0% {
         max-width: 0px;
         max-height: 0px;
     }
+
     100% {
         max-width: 540px;
         max-height: 220px;
@@ -81,27 +84,32 @@ body {
 @media only screen and (min-height:250px) {
     #content {
         top: 62px
-    }}
+    }
+}
 
 @media only screen and (min-height:350px) {
     #content {
         top: 87px
-    }}
+    }
+}
 
 @media only screen and (min-height:450px) {
     #content {
         top: 135px
-    }}
+    }
+}
 
 @media only screen and (min-height:650px) {
     #content {
         top: 195px
-    }}
+    }
+}
 
 @media only screen and (min-height:850px) {
     #content {
         top: 255px
-    }}
+    }
+}
 
 .logo {
     font-size: 28px;
@@ -135,20 +143,23 @@ img.smaller {
     /* 模糊效果 */
     backdrop-filter: blur(10px);
     /* 阴影效果 */
-    box-shadow: 0 0 18px rgba(70,70,40,0.255);
+    box-shadow: 0 0 18px rgba(70, 70, 40, 0.255);
     font-size: 30px;
     transition-duration: 0.2s;
     animation: search-bar 1s;
 }
+
 /* 搜索框的动画 */
 @keyframes search-bar {
     0% {
         max-width: 100px;
     }
+
     100% {
         max-width: 500px;
     }
 }
+
 /* 放大镜底层 */
 #search_submit {
     display: none;
@@ -170,24 +181,29 @@ img.smaller {
     border: solid 2px currentColor;
     border-radius: 100%;
     -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg); /* 逆时针旋转45度 */
+    transform: rotate(-45deg);
+    /* 逆时针旋转45度 */
     text-align: center;
     margin: auto;
 }
+
 .search.icon:before {
     content: '';
-    position: absolute; /* 关键 */
+    position: absolute;
+    /* 关键 */
     top: 10px;
     left: 3px;
     height: 5px;
     width: 2px;
     background-color: currentColor;
 }
+
 /* input */
 span {
     display: block;
     overflow: hidden;
 }
+
 #search_input {
     height: 46px;
     padding: 0 12px;
@@ -207,22 +223,26 @@ span {
     border-color: rgba(255, 255, 255, 0.2) !important;
     border-radius: 0 0 15px 15px;
     border-top: 13px solid transparent !important;
-    transform: translate(-21.45%,0%);
+    transform: translate(-21.45%, 0%);
     width: 80% !important;
 }
+
 /* 搜索词条联想框列表 */
 .bdSug_wpr table {
     background: none !important;
 }
+
 .bdSug_wpr td {
     margin: 4px !important;
     padding: 10px !important;
     color: #FAFAFA;
     background: none;
 }
+
 .bdSug_sd {
     height: 0px !important;
 }
+
 .bdSug_app {
     display: none !important;
 }
@@ -237,11 +257,12 @@ span {
     background-color: transparent;
     /*background: rgba(131,175,155,0.9)*/
 }
+
 /* 收纳所有收藏卡片的容器 */
 #box_container {
     text-align: left;
     margin: 0 auto 5% auto;
-    width: 80% !important; 
+    width: 80% !important;
     transition-duration: 0.4s;
     animation: box-container 1s;
     background: transparent;
@@ -261,6 +282,7 @@ span {
     position: relative;
     /*background: rgba(131,175,155,0.3);*/
 }
+
 /* 设置卡片链接 */
 .box a {
     width: 100%;
@@ -269,6 +291,7 @@ span {
     left: 0;
     top: 0;
 }
+
 /* 设置卡片图片 */
 .overlay {
     position: absolute;
@@ -277,7 +300,20 @@ span {
     border-radius: 0px;
     width: 46px;
     height: 46px;
+    transition-duration: 0.2s;
+    animation: overlay 1s;
 }
+
+@keyframes overlay {
+    0% {
+        background-size: 0%;
+    }
+
+    80% {
+        background-size: 75%;
+    }
+}
+
 /* 文字卡片 */
 .title {
     border-radius: 8px;
@@ -285,11 +321,12 @@ span {
     width: 46px;
     line-height: 46px;
     height: 46px;
-    box-shadow: 0 0 18px rgba(70,70,40,0.255);
+    box-shadow: 0 0 18px rgba(70, 70, 40, 0.255);
     backdrop-filter: blur(5px);
-    background-color: rgba(255,255,255,.100);
+    background-color: rgba(255, 255, 255, .100);
 
 }
+
 /* 设置卡片的名称 */
 .url {
     margin: 2px auto;
@@ -308,90 +345,73 @@ span {
     text-align: center;
     color: #7C95A2;
     font-size: 20px;
+    transition-duration: 0.2s;
+    animation: divide 1s;
 }
-#hitokoto {;
+
+#hitokoto {
     font-size: 14px;
     text-align: center;
     margin-bottom: 5%;
+    transition-duration: 0.2s;
+    animation: divide 1s;
+}
+
+@keyframes divide {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 /* 自适应 box_container */
 @media only screen and (min-width:128px) {
     #box_container {
         width: 64px
-    }}
+    }
+}
 
 @media only screen and (min-width:192px) {
     #box_container {
         width: 128px
-    }}
+    }
+}
 
 @media only screen and (min-width:256px) {
     #box_container {
         width: 192px
-    }}
+    }
+}
 
 @media only screen and (min-width:320px) {
     #box_container {
         width: 256px
-    }}
+    }
+}
 
 @media only screen and (min-width:384px) {
     #box_container {
         width: 320px
-    }}
+    }
+}
 
 @media only screen and (min-width:448px) {
     #box_container {
         width: 384px
-    }}
+    }
+}
 
 @media only screen and (min-width:512px) {
     #box_container {
         width: 448px
-    }}
+    }
+}
 
 @media only screen and (min-width:576px) {
     #box_container {
         width: 512px
-    }}
-
-
-/* 弹窗 (background) */
-.modal {
-    display: none; /* 默认隐藏 */
-    position: fixed; /* 固定定位 */
-    z-index: 1; /* 设置在顶层 */
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%;
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
-}
-
-/* 弹窗内容 */
-.modal-content {
-    background-color: #fefefe;
-    margin:  25% 10%; 
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    height: 66.7%; /* 不包括margin */
-}
-
-/* 关闭按钮 */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+    }
 }
