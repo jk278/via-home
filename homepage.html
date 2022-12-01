@@ -11,6 +11,7 @@
 
 <body>
     <div class='frosted-glass' id='gesture-indicator'></div>
+    <div class="header-layout"><div class="header"></div></div>
     <div id="content">
         <div class="search_part">
             <!-- 多种 logo 可选-->
@@ -71,20 +72,96 @@
                 <div class="box_layout"><div class="box">
                     <p class="title" aria-hidden="true"></p>
                     <div class="overlay" style="background: url('icon/sparkk/menu.svg') no-repeat;background-size: 80%;background-position:center center;"></div>
-                    <p class="url" aria-hidden="true">导航</p>
+                    <p class="url" aria-hidden="true">自定义</p>
                     <!-- 去掉 href 或 加 # 号 -->
-                    <a href="#" onclick="openNav()" title="nav"></a>
+                    <a id="custom" href="#" onclick="openNav()" title="自定义"></a>
                 </div></div>
             </div>
             <div class="divide">―·❀·―</div>
         </div>
+        
+        <script type="text/javascript">
+  var btn=document.querySelector("#custom");
+
+  var timer=null;
+
+  var touchstartHander=function(event){
+    // event.preventDefault();
+    timer=setTimeout(LongPress,500);
+  }
+
+  var touchmoveHander=function(event){
+    event.preventDefault();
+    clearTimeout(timer);
+        timer=null;
+  }
+
+  var touchendHander=function(event){
+    event.preventDefault();
+    clearTimeout(timer);
+        return false;
+  }
+  // 移动端
+  btn.addEventListener("touchstart",touchstartHander,false);
+  btn.addEventListener("touchmove",touchmoveHander,false);
+  btn.addEventListener("touchend",touchendHander,false);
+
+    function LongPress(){
+        /*alert("长按被触发");
+        var a = window.prompt("请输入：");*/
+        document.getElementById('myModal').style.display = "block";
+    }
+  
+  // 获取弹窗
+var modal = document.getElementById('myModal');
+ 
+// 打开弹窗的按钮对象
+/*var btn = document.getElementById("myBtn");*/
+ 
+// 获取 <span> 元素，用于关闭弹窗
+var span = document.querySelector('.close');
+ 
+// 点击按钮打开弹窗
+/*btn.onclick = function() {
+    modal.style.display = "block";
+}*/
+ 
+// 点击 <span> (x), 关闭弹窗
+span.onclick = function() {
+    modal.style.display = "none";
+}
+ 
+// 在用户点击其他地方时，关闭弹窗
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 
         <!-- hitokoto 一言 脚本 -->
         <div id="hitokoto">
             <script src=" https://v1.hitokoto.cn/?encode=js&select=%23hitokoto&max_length=20" defer></script>
             <script>hitokoto()</script>
         </div>
+        
+        <!-- 检测键盘 脚本 获取窗口大小，安卓苹果不同-->
+        <!--script>
+            var originalHeight =
+        document.documentElement.clientHeight || document.body.clientHeight;
+            window.onresize = function() {
+            //键盘弹起与隐藏都会引起窗口的高度发生变化
+            var resizeHeight =
+            document.documentElement.clientHeight || document.body.clientHeight;
+            if (resizeHeight - 0 < originalHeight - 0) {
+                //当软键盘弹起，在此处操作
+              
+            } else {
+                //当软键盘收起，在此处操作
 
+            };}
+        </script-->
+        
         <!-- 处理搜索状态 默认脚本 -->
         <script>
             function showButton() {
@@ -140,5 +217,17 @@
             }; BaiduSuggestion.bind("search_input", params, show);
         </script>
     </div>
+    
+    <!-- 弹窗 -->
+<div id="myModal" class="modal">
+
+  <!-- 弹窗内容 -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>弹窗中的文本...</p>
+  </div>
+
+</div>
+    
 </body>
 </html>
