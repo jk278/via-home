@@ -16,10 +16,17 @@ body {
     width: 600px;
     margin: auto;
     text-align: center;
-    background: #000000 url("bg/wildness.jpg") no-repeat top center;
-    background-size: 120%;
 }
 
+/*@media (prefers-color-scheme: light) {
+    body {   
+        
+    }}
+@media (prefers-color-scheme: dark) {
+    body {   
+        
+    }}
+*/
 #gesture-indicator {
     height: 100%;
     width: 100%;
@@ -29,6 +36,38 @@ body {
     z-index: 0;
     overflow: hidden;
     word-break: break-all
+}
+
+.header-layout {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 36.5%;
+}
+.header {
+    width: 90%;
+    margin: 16px auto 0 auto;
+    height: 220px;
+    background: url("bg/wildness.jpg") no-repeat top center;
+    background-size: cover;
+    border-radius: 8px;
+    /* 模糊效果 */
+    backdrop-filter: blur(10px);
+    /* 阴影效果 */
+    box-shadow: 0 0 18px rgba(70,70,40,0.51);
+    transition-duration: 0.2s;
+    animation: header 1s;
+}
+@keyframes header {
+    0% {
+        max-width: 0px;
+        max-height: 0px;
+    }
+    100% {
+        max-width: 540px;
+        max-height: 220px;
+    }
 }
 
 #content {
@@ -131,13 +170,13 @@ img.smaller {
     border: solid 2px currentColor;
     border-radius: 100%;
     -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+    transform: rotate(-45deg); /* 逆时针旋转45度 */
     text-align: center;
     margin: auto;
 }
 .search.icon:before {
     content: '';
-    position: absolute;
+    position: absolute; /* 关键 */
     top: 10px;
     left: 3px;
     height: 5px;
@@ -156,7 +195,6 @@ span {
     outline: none;
     border: none;
     font-size: 15px;
-    color: #FAFAFA;
     background-color: transparent;
 }
 
@@ -263,18 +301,18 @@ span {
     overflow: hidden;
     text-overflow: clip;
     -o-text-overflow: clip;
-    color: #FAFAFA;
     font-size: 10px;
 }
+
 .divide {
     text-align: center;
-    color: #757575;
+    color: #7C95A2;
     font-size: 20px;
 }
 #hitokoto {;
     font-size: 14px;
-    color: #BEBEBE;
     text-align: center;
+    margin-bottom: 5%;
 }
 
 /* 自适应 box_container */
@@ -317,3 +355,43 @@ span {
     #box_container {
         width: 512px
     }}
+
+
+/* 弹窗 (background) */
+.modal {
+    display: none; /* 默认隐藏 */
+    position: fixed; /* 固定定位 */
+    z-index: 1; /* 设置在顶层 */
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+/* 弹窗内容 */
+.modal-content {
+    background-color: #fefefe;
+    margin:  25% 10%; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 66.7%; /* 不包括margin */
+}
+
+/* 关闭按钮 */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
