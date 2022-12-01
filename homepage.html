@@ -27,7 +27,7 @@
                     t.innerHTML = str[0];
                 }
             </script>
-
+            
             <!-- 切换搜索引擎 脚本 -->
             <script type="text/javascript" src="multi-search.js"></script>
             <!-- 搜索框 -->
@@ -37,7 +37,7 @@
                 <span><input class="search" onfocus="showButton()" onblur="hideButton()" type="text" value="" autocomplete="off" id="search_input" title="搜索"></span>
             </form>
         </div>
-
+        
         <!-- 输入框随机展示精选句子 -->
         <script type="text/javascript" src="random-sentence.js"></script>
 
@@ -47,41 +47,34 @@
             <link rel="stylesheet" href="icon/svg.css">
             <div id="box_container">
 
-                <div class="box">
+                <div class="box_layout"><div class="box">
                     <p class="title" aria-hidden="true"></p>
                     <div class="overlay" style="background: url('icon/sparkk/star.svg') no-repeat;background-size: 80%;background-position:center center;"></div>
-                    <p class="url" aria-hidden="true">
-                        书签
-                    </p>
+                    <p class="url" aria-hidden="true">书签</p>
                     <a href="folder://" onclick="" title="书签"></a>
-                </div>
+                </div></div>
 
-                <div class="box">
+                <div class="box_layout"><div class="box">
                     <p class="title" aria-hidden="true"></p>
                     <div class="overlay" style="background: url('icon/sparkk/align-left.svg') no-repeat;background-size: 80%;background-position:center center;"></div>
-                    <p class="url" aria-hidden="true">
-                        历史
-                    </p>
+                    <p class="url" aria-hidden="true">历史</p>
                     <a href="history://" onclick="" title="历史"></a>
-                </div>
+                </div></div>
 
-                <div class="box">
+                <div class="box_layout"><div class="box">
                     <p class="title" aria-hidden="true"></p>
                     <div class="overlay" style="background: url('icon/sparkk/grid.svg') no-repeat;background-size: 80%;background-position:center center;"></div>
-                    <p class="url" aria-hidden="true">
-                        Infinity
-                    </p>
+                    <p class="url" aria-hidden="true">Infinity</p>
                     <a href="https://m.inftab.com/#/" onclick="" title="Infinity"></a>
-                </div>
+                </div></div>
 
-                <div class="box">
+                <div class="box_layout"><div class="box">
                     <p class="title" aria-hidden="true"></p>
                     <div class="overlay" style="background: url('icon/sparkk/menu.svg') no-repeat;background-size: 80%;background-position:center center;"></div>
-                    <p class="url" aria-hidden="true">
-                        via
-                    </p>
-                    <a href="file:///data/user/0/mark.via/files/homepage2.html" onclick="" title="via"></a>
-                </div>
+                    <p class="url" aria-hidden="true">导航</p>
+                    <!-- 去掉 href 或 加 # 号 -->
+                    <a href="#" onclick="openNav()" title="nav"></a>
+                </div></div>
             </div>
             <div class="divide">―·❀·―</div>
         </div>
