@@ -14,16 +14,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 bing: {
                     name: "必应", url: " https://cn.bing.com/search?q="
                 },
+                sg: {
+                    name: "搜狗",
+                    url: " https://m.sogou.com/web/searchList.jsp?keyword="
+                },
                 wz: {
                     name: "无追",
                     url: " https://wuzhuiso.com/s?q="
                 },
                 gk: {
                     name: "夸克", url: " https://quark.sm.cn/s?q="
-                },
-                sg: {
-                    name: "搜狗",
-                    url: " https://m.sogou.com/web/searchList.jsp?keyword="
                 },
                 tt: {
                     name: "头条",
@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     name: "其他", url: localStorage.c || ""
                 },
             };
-            (c.style.color = "white"),
             (c.style.float = "left"),
             (c.style.height = "46px"),
             (c.style.border = "none"),
