@@ -3,11 +3,8 @@ var headerImg = document.getElementById("header");
 // 获取图片缓存 base64
 let storageImg = localStorage.getItem('img');
 // 缓存不为空设置为图片
-if (storageImg != null) {
-    headerImg.setAttribute('src', storageImg);
-} else {
-    headerImg.setAttribute('src', 'bg/wildness.jpg');
-}
+if (storageImg) headerImg.setAttribute('src', storageImg);
+else headerImg.setAttribute('src', 'bg/wildness.jpg');
 
 var imgSrc = "bg/wildness.jpg";
 
