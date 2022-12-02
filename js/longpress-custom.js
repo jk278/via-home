@@ -34,6 +34,7 @@ let p = document.getElementById("custom-text"),
     a = document.getElementById("custom");
 
 changeSite(p, a);
+
 alert(p.innerHTML+a.href);
 function LongPress(p, a) {
     // alert("长按被触发");
@@ -49,8 +50,8 @@ function LongPress(p, a) {
             a.href = site;
         }
     }
+    alert(p.innerHTML+a.href);
 }
-alert(p.innerHTML+a.href);
 function changeSite(p, a) {
     var nameCache = localStorage.getItem("name"),
         siteCache = localStorage.getItem("site");
