@@ -5,12 +5,13 @@ let storageImg = localStorage.getItem('img');
 // 缓存不为空设置为图片
 if (storageImg != null) {
     headerImg.setAttribute('src', storageImg);
+    alert("成功加载缓存！");
 } else {
     headerImg.setAttribute('src', 'bg/wildness.jpg');
     alert("使用远程图片！");
 }
 
-/* 这是已加载图片转 base64
+/* 这是图片转 base64
 function image2Base64(img) {
     var canvas = document.createElement("canvas");
     canvas.width = img.width;
@@ -22,15 +23,9 @@ function image2Base64(img) {
 }
 */
 
-var imgSrc = "bg/wildness.jpg"; 
+var imgSrc = "bg/wildness.jpg";
 
-try{
-    
-var base64 = function(imgSrc) {
-    alert("缓存失败！");
-    var image = new Image();
-image.src = imgSrc;
-
+function getBase64(img) {
     var canvas = document.createElement("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
@@ -41,16 +36,31 @@ image.src = imgSrc;
     return dataURL;
 }
 
-alert(base64);
-}
-catch(err) {
-    alert("缓存失败！");
+function imgToBase64(imgSrc, imgType, callback) {
+    let type = imgType || 'image/png',
+        dataURL,
+        img = new Image();
+    // 允许资源跨域使用
+    img.setAttribute('crossOrigin', 'anonymous');
+    img.src = imgSrc;
+    img.onload = function () {
+        let imgWidth = img.width,
+            imgHeight = img.height;
+
+        let canvas = document.createElement('canvas'),
+            ctx = canvas.getContext('2d');
+        canvas.width = imgWidth;
+        canvas.height = imgHeight;
+        ctx.drawImage(img, 0, 0, imgWidth, imgHeight);
+        dataURL = canvas.toDataURL(type);
+        console.log(dataURL);
+        callback && callback(dataURL)
+        return dataURL
+    }
 }
 
-try {
-    localStorage.setItem('img', base64);
-}
-catch(err) {
-    alert("缓存失败！");
-}
+var image = new Image();
+image.src = imgSrc;
 
+var base64 = imgToBase64(imgSrc,"jpg",null);
+localStorage.setItem('img', base64);
