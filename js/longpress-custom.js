@@ -34,7 +34,7 @@ let p = document.getElementById("custom-text"),
     a = document.getElementById("custom");
 
 changeSite(p, a);
-
+alert(p.innerHTML+a.href);
 function LongPress(p, a) {
     // alert("长按被触发");
     var name = window.prompt("请输入网站名：");
@@ -50,10 +50,10 @@ function LongPress(p, a) {
         }
     }
 }
-
+alert(p.innerHTML+a.href);
 function changeSite(p, a) {
-    var nameCache = localStorage.getItem("name");
-    siteCache = localStorage.getItem("site");
+    var nameCache = localStorage.getItem("name"),
+        siteCache = localStorage.getItem("site");
 
     if (nameCache && siteCache) {
         p.innerHTML = nameCache;
