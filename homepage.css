@@ -51,8 +51,6 @@ body {
     margin: 16px auto 0 auto;
     height: 220px;
     border-radius: 8px;
-    /* 阴影效果 */
-    box-shadow: 0 0 18px rgba(70, 70, 40, 0.51);
     transition-duration: 0.2s;
     animation: header 1s;
 }
