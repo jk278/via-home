@@ -46,7 +46,6 @@ body {
     height: 36.5%;
 }
 
-
 #header {
     width: 90%;
     margin: 16px auto 0 auto;
@@ -63,12 +62,12 @@ body {
 
 @keyframes header {
     0% {
-        max-width: 0px;
-        max-height: 0px;
+        max-width: 0;
+        max-height: 0;
     }
 
     100% {
-        max-width: 410px;
+        max-width: 90%;
         max-height: 220px;
     }
 }
