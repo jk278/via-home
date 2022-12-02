@@ -31,14 +31,15 @@ changeSite(p, a);
 function LongPress(p, a) {
     // alert("长按被触发");
     var name = window.prompt("请输入网站名：");
-    if (name) {
+    if (name && name != "") {
         // local storage 是同步的！
         localStorage.setItem('name', name);
         // 在主 html 读取存储 (不是)
         var site = window.prompt("请输入网址：");
-        if (site) {
+        if (site && site != "") {
             localStorage.setItem('site', site);
-            changeSite(p, a);
+            p.innerHTML = nameCache;
+            a.setAttribut.href = siteCache;
         }
     }
 }
