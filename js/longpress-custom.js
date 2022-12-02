@@ -38,19 +38,19 @@ changeSite(p, a);
 alert(p.innerHTML+a.href);
 function LongPress(p, a) {
     // alert("长按被触发");
-    var name = window.prompt("请输入网站名：");
-    if (name && name != "") {
-        var site = window.prompt("请输入网址：");
-        if (site && site != "") {
-            // local storage 是同步的！
-            localStorage.setItem('name', name);
-            // 在主 html 读取存储 (不是)
-            localStorage.setItem('site', site);
-            p.innerHTML = name;
-            a.href = site;
-        }
-    }
     alert(p.innerHTML+a.href);
+    // var name = window.prompt("请输入网站名：");
+    // if (name && name != "") {
+    //     var site = window.prompt("请输入网址：");
+    //     if (site && site != "") {
+    //         // local storage 是同步的！
+    //         localStorage.setItem('name', name);
+    //         // 在主 html 读取存储 (不是)
+    //         localStorage.setItem('site', site);
+    //         p.innerHTML = name;
+    //         a.href = site;
+    //     }
+    // }
 }
 function changeSite(p, a) {
     var nameCache = localStorage.getItem("name"),
