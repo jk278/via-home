@@ -38,8 +38,8 @@ function LongPress(p, a) {
         var site = window.prompt("请输入网址：");
         if (site && site != "") {
             localStorage.setItem('site', site);
-            p.innerHTML = nameCache;
-            a.setAttribut.href = siteCache;
+            p.innerHTML = name;
+            a.setAttribut.href = site;
         }
     }
 }
