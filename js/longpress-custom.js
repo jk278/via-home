@@ -23,7 +23,12 @@ btn.addEventListener("touchstart", touchstartHander, false);
 btn.addEventListener("touchmove", touchmoveHander, false);
 btn.addEventListener("touchend", touchendHander, false);
 
-function LongPress() {
+var p = document.getElementById("custom-text");
+a = document.getElementById("custom");
+
+changeSite(p, a);
+
+function LongPress(p, a) {
     // alert("长按被触发");
     var name = window.prompt("请输入网站名：");
     if (name != null) localStorage.setItem('name', name);
@@ -32,15 +37,15 @@ function LongPress() {
         var site = window.prompt("请输入网址：");
         if (site != null) localStorage.setItem('site', site);
     }
+    changeSite(p, a);
 }
 
-var p = document.getElementById("custom-text");
-    a = document.getElementById("custom");
-
-var nameCache = localStorage.getItem("name");
+function changeSite(p, a) {
+    var nameCache = localStorage.getItem("name");
     siteCache = localStorage.getItem("site");
 
-if (nameCache != null && siteCache != null) {
-    p.innerHTML = nameCache;
-    a.setAttribut.href = siteCache;
+    if (nameCache != null && siteCache != null) {
+        p.innerHTML = nameCache;
+        a.setAttribut.href = siteCache;
+    }
 }
