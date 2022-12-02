@@ -53,8 +53,6 @@ body {
     background: url("bg/wildness.jpg") no-repeat top center;
     background-size: cover;
     border-radius: 8px;
-    /* 模糊效果 */
-    backdrop-filter: blur(10px);
     /* 阴影效果 */
     box-shadow: 0 0 18px rgba(70, 70, 40, 0.51);
     transition-duration: 0.2s;
