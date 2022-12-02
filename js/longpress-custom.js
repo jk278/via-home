@@ -26,11 +26,11 @@ btn.addEventListener("touchend", touchendHander, false);
 function LongPress() {
     // alert("长按被触发");
     var name = window.prompt("请输入网站名：");
-    localStorage.setItem('name', name);
+    if (name != null) localStorage.setItem('name', name);
     // 在主 html 读取存储 (不是)
     if (name != null) {
         var site = window.prompt("请输入网址：");
-        localStorage.setItem('site', site);
+        if (site != null) localStorage.setItem('site', site);
     }
 }
 
