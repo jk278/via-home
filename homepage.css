@@ -62,6 +62,7 @@ body {
     height: 220px;
     object-fit: cover;
     object-position: top;
+    pointer-events: none;
     border-radius: 8px;
     /* 阴影效果 */
     box-shadow: 0 0 18px rgba(70, 70, 40, 0.51);
