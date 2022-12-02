@@ -5,38 +5,13 @@ let storageImg = localStorage.getItem('img');
 // 缓存不为空设置为图片
 if (storageImg != null) {
     headerImg.setAttribute('src', storageImg);
-    alert("成功加载缓存！");
 } else {
     headerImg.setAttribute('src', 'bg/wildness.jpg');
-    alert("使用远程图片！");
 }
-
-/* 这是图片转 base64
-function image2Base64(img) {
-    var canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0, img.width, img.height);
-    var dataURL = canvas.toDataURL("image/png");
-    return dataURL;
-}
-*/
 
 var imgSrc = "bg/wildness.jpg";
 
-function getBase64(img) {
-    var canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0, img.width, img.height);
-    var ext = img.src.substring(img.src.lastIndexOf(".") + 1).toLowerCase();
-    var dataURL = canvas.toDataURL("image/" + ext);
-    return dataURL;
-}
-
-function imgToBase64(imgSrc, imgType, callback) {
+function getBase64(imgSrc, imgType, callback) {
     let type = imgType || 'image/png',
         dataURL,
         img = new Image();
@@ -44,23 +19,29 @@ function imgToBase64(imgSrc, imgType, callback) {
     img.setAttribute('crossOrigin', 'anonymous');
     img.src = imgSrc;
     img.onload = function () {
-        let imgWidth = img.width,
-            imgHeight = img.height;
+        let width = img.width,
+            height = img.height;
 
         let canvas = document.createElement('canvas'),
             ctx = canvas.getContext('2d');
-        canvas.width = imgWidth;
-        canvas.height = imgHeight;
-        ctx.drawImage(img, 0, 0, imgWidth, imgHeight);
+        canvas.width = width;
+        canvas.height = height;
+        ctx.drawImage(img, 0, 0, width, height);
         dataURL = canvas.toDataURL(type);
         console.log(dataURL);
         callback && callback(dataURL)
-        return dataURL
+        // return dataURL
     }
 }
 
 var image = new Image();
 image.src = imgSrc;
 
-var base64 = imgToBase64(imgSrc,"jpg",null);
-localStorage.setItem('img', base64);
+// onload事件确保了转换任务在图片加载后执行，却又带来了新问题——dataURL 只有在图片加载完成后才会返回，
+// 我们是无法精准确定图片完成加载的时间的。如果后续要对 dataURL 做相关处理（比如传递到其他服务器）的话，
+// 添加一个回调是必要的，这能确保后续处理任务在成功得到 dataURL 之后执行，我们修改一下getBase64()：
+
+// var base64 = 
+getBase64(imgSrc, "jpg", dataURL => {
+    localStorage.setItem('img', dataURL);
+});
