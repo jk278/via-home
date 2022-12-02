@@ -21,6 +21,8 @@ function changeSize(sizeString, heightStr) {
     sheet.addRule('input::placeholder', 'font-size:' + sizeString + ';transform: translateY(' + heightStr + ')');
 }
 
+changeSize(null, "-1px");
+
 if (19 < randomSentence.length && randomSentence.length <= 21) {
     changeSize("13px", "-2px");
 }
