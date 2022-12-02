@@ -46,17 +46,10 @@ body {
     height: 36.5%;
 }
 
-.header {
-    width: 90%;
-    margin: 16px auto 0 auto;
-    height: 220px;
-    border-radius: 8px;
-    transition-duration: 0.2s;
-    animation: header 1s;
-}
 
 #header {
-    width: 100%;
+    width: 90%;
+    margin: 16px auto 0 auto;
     height: 220px;
     object-fit: cover;
     object-position: top;
