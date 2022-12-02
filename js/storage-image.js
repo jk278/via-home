@@ -1,13 +1,16 @@
+// 获取头图
 var headerImg = document.getElementById("header");
-
+// 获取图片缓存 base64
 let storageImg = localStorage.getItem('img');
+// 缓存不为空设置为图片
 if (storageImg != null) {
-    headerImg.setAttribute('src', 'data:image/png;base64,' + storageImg);
+    headerImg.setAttribute('src', storageImg);
 } else {
     headerImg.setAttribute('src', 'bg/wildness.jpg');
+    alert("使用远程图片！");
 }
 
-
+/* 这是已加载图片转 base64
 function image2Base64(img) {
     var canvas = document.createElement("canvas");
     canvas.width = img.width;
@@ -17,12 +20,17 @@ function image2Base64(img) {
     var dataURL = canvas.toDataURL("image/png");
     return dataURL;
 }
+*/
 
-getImgBase64();
+var imgSrc = "bg/wildness.jpg"; 
 
-var img = "bg/wildness.jpg";//imgurl 就是你的图片路径 
+try{
+    
+var base64 = function(imgSrc) {
+    alert("缓存失败！");
+    var image = new Image();
+image.src = imgSrc;
 
-function getBase64Image(img) {
     var canvas = document.createElement("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
@@ -33,8 +41,16 @@ function getBase64Image(img) {
     return dataURL;
 }
 
-var image = new Image();
-image.src = img;
+alert(base64);
+}
+catch(err) {
+    alert("缓存失败！");
+}
 
-var base64 = getBase64Image(image);
-localStorage.setItem('img', base64);
+try {
+    localStorage.setItem('img', base64);
+}
+catch(err) {
+    alert("缓存失败！");
+}
+
