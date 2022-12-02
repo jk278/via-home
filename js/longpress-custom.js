@@ -39,7 +39,7 @@ function LongPress(p, a) {
         if (site && site != "") {
             localStorage.setItem('site', site);
             p.innerHTML = name;
-            a.setAttribut.href = site;
+            a.href = site;
         }
     }
 }
@@ -50,6 +50,6 @@ function changeSite(p, a) {
 
     if (nameCache && siteCache) {
         p.innerHTML = nameCache;
-        a.setAttribut.href = siteCache;
+        a.href = siteCache;
     }
 }
