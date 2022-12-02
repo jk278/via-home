@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         (c.style.height = "46px"),
         (c.style.border = "none"),
         (c.style.paddingLeft = "6px"),
-        (c.style.background = "transparent"),
+        (c.style.marginTop= "2px"),
         (c.style.outline = "none"),
         (c.style.borderRadius = "inherit");
     for (h in g)

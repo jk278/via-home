@@ -99,48 +99,17 @@
                         <div class="overlay"
                             style="background: url('icon/sparkk/menu.svg') no-repeat;background-size: 75%;background-position:center center;">
                         </div>
-                        <p class="url" aria-hidden="true">自定义</p>
+                        <p id="custom-text" class="url" aria-hidden="true">长按</p>
                         <!-- 去掉 href 或 加 # 号 -->
-                        <a id="custom" href="#" onclick="openNav()" title="自定义"></a>
+                        <a id="custom" href="#" onclick="" title="自定义"></a>
                     </div>
                 </div>
             </div>
             <div class="divide">―·❀·―</div>
         </div>
 
-        <!-- 触发长按事件 脚本 -->
-        <script type="text/javascript">
-            var btn = document.querySelector("#custom");
-
-            var timer = null;
-
-            var touchstartHander = function (event) {
-                // event.preventDefault();
-                timer = setTimeout(LongPress, 500);
-            }
-
-            var touchmoveHander = function (event) {
-                event.preventDefault();
-                clearTimeout(timer);
-                timer = null;
-            }
-
-            var touchendHander = function (event) {
-                event.preventDefault();
-                clearTimeout(timer);
-                return false;
-            }
-            // 移动端
-            btn.addEventListener("touchstart", touchstartHander, false);
-            btn.addEventListener("touchmove", touchmoveHander, false);
-            btn.addEventListener("touchend", touchendHander, false);
-
-            function LongPress() {
-                /*alert("长按被触发");
-                var a = window.prompt("请输入：");*/
-            }
-
-        </script>
+        <!-- 长按自定义网址 脚本 -->
+        <script type="text/javascript" src="js/longpress-custom.js"></script>
 
         <!-- hitokoto 一言 脚本 -->
         <div id="hitokoto">
