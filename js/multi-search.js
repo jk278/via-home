@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         (c.style.setProperty("font-size", "var(--m-font-size)")),
         // 操，要用 backgroundColor
         (c.style.backgroundColor = "rgba(127, 127, 127, 0.1)"),
+        (c.style.setProperty("color", "var(--tap-highlight-color)")),
         (c.style.outline = "none"),
         (c.style.borderRadius = "8px");
     for (h in g)
