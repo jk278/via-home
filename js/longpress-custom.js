@@ -2,36 +2,45 @@ var btn = document.querySelector("#custom");
 let p = document.getElementById("custom-text");
 
 let timer = 0;
-
+// 坐标
+document.startPoint = {};
 // event 是触摸时间
-var touchstartHander = function (event) {
+btn.addEventListener("touchstart", function (e) {
     // 阻止默认的屏幕滚动
-    event.preventDefault();
+    e.preventDefault();
+    // 变量都没传，当然没反应了
     timer = setTimeout(() => {
         LongPress(p, btn);
         timer = null;
     }, 500);
-    // 变量都没传，当然没反应了
-}
+    // 起始坐标
+    document.startPoint = {
+        x: e.changedTouches[0].pageX,
+        y: e.changedTouches[0].pageY
+    }
+});
 
-var touchmoveHander = function (event) {
+btn.addEventListener("touchmove", function (e) {
     clearTimeout(timer);
     timer = 0;
-}
+});
 
-var touchendHander = function (event) {
+btn.addEventListener("touchend", function (e) {
     clearTimeout(timer);
+    // 结束坐标
+    var now = {
+        x: e.changedTouches[0].pageX,
+        y: e.changedTouches[0].pageY
+    };
     // 全不等于，类型也不同
-    if (timer !== 0) {
-        // 判断是否发生长按
-        alert("触发点击");
+    if (timer !== 0 && Math.abs(now.x - document.startPoint.x)
+        + Math.abs(now.y - document.startPoint.y) < 5) {
+        // 执行点击事件
+        e.target.dispatchEvent(tap);
+        // window.location.href = localStorage.getItem("site");
     }
     return false;
-}
-// 移动端
-btn.addEventListener("touchstart", touchstartHander, false);
-btn.addEventListener("touchmove", touchmoveHander, false);
-btn.addEventListener("touchend", touchendHander, false);
+});
 
 // let和var的区别体现在作用域上。var的作用域被规定为一个函数作用域，
 // 而let则被规定为块作用域，块作用域要比函数作用域小一些，
