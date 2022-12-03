@@ -4,7 +4,6 @@
     box-sizing: border-box;
 
     --m-font-size: 14px;
-    --tap-highlight-color: 14px;
 }
 
 html {
@@ -363,7 +362,7 @@ span {
     margin-bottom: 5%;
     transition-duration: 0.2s;
     animation: divide 1s;
-    color: var(--tap-highlight-color);
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
 }
 
 @keyframes divide {

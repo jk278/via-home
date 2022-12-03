@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         (c.style.margin= "8px 0 0 8px"),
         (c.style.setProperty("font-size", "var(--m-font-size)")),
         // 操，要用 backgroundColor
-        (c.style.setProperty("color", "var(--tap-highlight-color)")),
+        (c.style.setProperty("-webkit-tap-highlight-color", "rgba(255, 255, 255, 0.1)")),
         (c.style.outline = "none"),
         (c.style.borderRadius = "8px");
     for (h in g)
