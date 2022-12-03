@@ -2,11 +2,11 @@
 var headerImg = document.getElementById("header");
 // 获取图片缓存 base64
 let storageImg = localStorage.getItem('img');
+
+var imgSrc = "bg/wildness-compress.jpg";
 // 缓存不为空设置为图片
 if (storageImg) headerImg.setAttribute('src', storageImg);
-else headerImg.setAttribute('src', 'bg/wildness.jpg');
-
-var imgSrc = "bg/wildness.jpg";
+else headerImg.setAttribute('src', imgSrc);
 
 function getBase64(imgSrc, imgType, callback) {
     let type = imgType || 'image/png',
