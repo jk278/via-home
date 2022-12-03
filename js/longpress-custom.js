@@ -61,7 +61,8 @@ function LongPress(p, a) {
     if (name && name != "") {
         var site = window.prompt("请输入网址：");
         if (site && site != "") {
-            confirm = window.confirm("确认保存？\n\n网站名：" + p.innerHTML + "\n网址：\u3000" + a.href);
+            confirm = window.confirm("确认保存？\n\n网站名：" + name 
+            + "\n网址：\u3000" + site + "\n( ´◔︎ ‸◔︎`)\n清除缓存将会丢失~");
             if (confirm) {
                 // local storage 是同步的！
                 localStorage.setItem('name', name);
