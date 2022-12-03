@@ -65,13 +65,11 @@ body {
 
 @keyframes header {
     0% {
-        max-width: 0;
-        max-height: 0;
+        transform: translateY(-300px);
     }
 
     100% {
-        max-width: 90%;
-        max-height: 220px;
+        transform: translateY(0);
     }
 }
 
