@@ -65,7 +65,7 @@ body {
 
 @keyframes header {
     0% {
-        transform: translateY(-450px);
+        transform: translateY(-500px);
     }
 
     100% {
@@ -149,7 +149,7 @@ img.smaller {
 /* 搜索框的动画 */
 @keyframes search-bar {
     0% {
-        max-width: 100px;
+        max-width: 52px;
         opacity: 0.1;
     }
 
@@ -303,7 +303,7 @@ span {
 
 @keyframes title {
     0% {
-        scale: 0;
+        scale: 0.1;
     }
 
     80% {
@@ -325,7 +325,7 @@ span {
 
 @keyframes overlay {
     0% {
-        background-size: 0%;
+        background-size: 7.5%;
     }
 
     80% {
@@ -368,7 +368,7 @@ span {
 
 @keyframes divide {
     0% {
-        opacity: 0;
+        opacity: 0.1;
     }
 
     100% {
