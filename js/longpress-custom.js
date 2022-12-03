@@ -60,10 +60,12 @@ function LongPress(p, a) {
     var name = window.prompt("请输入网站名：");
     if (name && name != "") {
         var site = window.prompt("请输入网址：");
+        alert(site);
         if (site && site != "") {
-            confirm = window.confirm("确认保存？\n\n网站名：" + name 
-            + "\n网址：\u3000" + site + "\n( ´◔︎ ‸◔︎`)\n清除缓存将会丢失~");
-            if (confirm) {
+            // 变量命名为函数名 confirm 出现只执行一次的问题，即无法存储
+            conf = window.confirm("确认保存？\n\n网站名：" + name 
+            + "\n网址：\u3000" + site + "\n( ´◔︎ ‸◔︎`)\n清除网页存储将会丢失~");
+            if (conf) {
                 // local storage 是同步的！
                 localStorage.setItem('name', name);
                 // 在主 html 读取存储 (不是)
