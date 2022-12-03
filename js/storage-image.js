@@ -14,6 +14,8 @@ function getBase64(imgSrc, imgType, callback) {
         img = new Image();
     // 允许资源跨域使用
     img.setAttribute('crossOrigin', 'anonymous');
+    // 存疑！
+    img.style.display = "none";
     img.src = imgSrc;
     img.onload = function () {
         let width = img.width,
@@ -31,8 +33,9 @@ function getBase64(imgSrc, imgType, callback) {
     }
 }
 
-var image = new Image();
-image.src = imgSrc;
+// 冗余代码！
+// var image = new Image();
+// image.src = imgSrc;
 
 var ext = imgSrc.substring(imgSrc.lastIndexOf(".")+1).toLowerCase();
 

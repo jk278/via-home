@@ -41,11 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
     (c.style.appearance = "none"),
         (c.style.height = "30px"),
         (c.style.border = "none"),
-        (c.style.padding = "0 10px 0px 9px"),
+        (c.style.padding = "0 12px 0px 8px"),
         (c.style.margin= "8px 0 0 8px"),
         (c.style.setProperty("font-size", "var(--m-font-size)")),
         // 操，要用 backgroundColor
-        (c.style.backgroundColor = "rgba(127, 127, 127, 0.1)"),
         (c.style.setProperty("color", "var(--tap-highlight-color)")),
         (c.style.outline = "none"),
         (c.style.borderRadius = "8px");
