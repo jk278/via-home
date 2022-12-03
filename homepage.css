@@ -50,7 +50,7 @@ body {
 
 #header {
     width: 90%;
-    margin: 16px auto 0 auto;
+    margin: 16px auto;
     height: 220px;
     object-fit: cover;
     object-position: top;
@@ -124,7 +124,7 @@ body {
 
 img.smaller {
     height: 72px;
-    border-radius: 0px;
+    border-radius: 0;
     object-fit: cover;
 }
 
@@ -137,7 +137,7 @@ img.smaller {
     vertical-align: middle;
     width: 85%;
     max-width: 600px;
-    margin: 10% auto 0;
+    margin: 10% auto;
     border: 1px solid rgba(255, 255, 255, 0.24);
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.1);
@@ -145,7 +145,6 @@ img.smaller {
     backdrop-filter: blur(10px);
     /* 阴影效果 */
     box-shadow: 0 0 18px rgba(70, 70, 40, 0.255);
-    font-size: 30px;
     transition-duration: 0.2s;
     animation: search-bar 1s;
 }
@@ -219,7 +218,7 @@ span {
     overflow-y: scroll !important;
     max-height: 30% !important;
     backdrop-filter: blur(10px);
-    border: 0px solid !important;
+    border: 0 solid !important;
     border-color: rgba(255, 255, 255, 0.2) !important;
     border-radius: 0 0 15px 15px;
     border-top: 13px solid transparent !important;
@@ -251,7 +250,7 @@ span {
 #bookmark_part {
     text-align: center;
     max-width: 600px;
-    margin: 20% auto 10% auto;
+    margin: 20% auto 10%;
     padding: 0;
     /* background: rgba(131, 175, 155, 0.2) */
 }
@@ -259,7 +258,7 @@ span {
 /* 收纳所有收藏卡片的容器 */
 #box_container {
     text-align: left;
-    margin: 0 auto 5% auto;
+    margin: 0 auto 5%;
     width: 80% !important;
     transition-duration: 0.4s;
     animation: box-container 1s;
@@ -277,7 +276,7 @@ span {
 
 .box {
     width: 46px;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
     position: relative;
     /* background: rgba(131, 175, 155, 0.8); */
 }
@@ -296,7 +295,7 @@ span {
     position: absolute;
     left: 0;
     top: 0;
-    border-radius: 0px;
+    border-radius: 0;
     width: 46px;
     height: 46px;
     transition-duration: 0.2s;

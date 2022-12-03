@@ -39,15 +39,15 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     (c.style.float = "left"),
     (c.style.appearance = "none"),
-        (c.style.height = "46px"),
+        (c.style.height = "30px"),
         (c.style.border = "none"),
-        (c.style.paddingLeft = "10px"),
-        (c.style.paddingRight = "10px"),
-        (c.style.marginTop= "1.5px"),
+        (c.style.padding = "0 10px 0px 9px"),
+        (c.style.margin= "8px 0 0 8px"),
         (c.style.setProperty("font-size", "var(--m-font-size)")),
-        // (c.style.background = "blue"),
+        // 操，要用 backgroundColor
+        (c.style.backgroundColor = "rgba(127, 127, 127, 0.1)"),
         (c.style.outline = "none"),
-        (c.style.borderRadius = "100px");
+        (c.style.borderRadius = "8px");
     for (h in g)
         e.push(
             "<option value=" +
