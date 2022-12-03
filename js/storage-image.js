@@ -34,12 +34,14 @@ function getBase64(imgSrc, imgType, callback) {
 var image = new Image();
 image.src = imgSrc;
 
+var ext = imgSrc.substring(imgSrc.lastIndexOf(".")+1).toLowerCase();
+
 // onload事件确保了转换任务在图片加载后执行，却又带来了新问题——dataURL 只有在图片加载完成后才会返回，
 // 我们是无法精准确定图片完成加载的时间的。如果后续要对 dataURL 做相关处理（比如传递到其他服务器）的话，
 // 添加一个回调是必要的，这能确保后续处理任务在成功得到 dataURL 之后执行，我们修改一下getBase64()：
 
 // var base64 = 
-getBase64(imgSrc, "jpg", dataURL => {
+getBase64(imgSrc, ext, dataURL => {
     localStorage.setItem('img', dataURL);
 });
 
