@@ -338,6 +338,8 @@ span {
     text-overflow: clip;
     -o-text-overflow: clip;
     font-size: 10px;
+    transition-duration: 0.2s;
+    animation: divide 1s;
 }
 
 .divide {
