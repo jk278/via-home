@@ -1,4 +1,3 @@
-function getHeader() {
 // 获取头图
 var headerImg = document.getElementById("header");
 // 获取图片缓存 base64
@@ -43,6 +42,4 @@ image.src = imgSrc;
 getBase64(imgSrc, "jpg", dataURL => {
     localStorage.setItem('img', dataURL);
 });
-}
 
-window.setTimeout(getHeader(),1);
