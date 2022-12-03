@@ -57,10 +57,9 @@ changeSite(p, btn);
 
 function LongPress(p, a) {
     // alert("长按被触发");
-    var name = window.prompt("请输入网站名：");
+    var name = window.prompt("请输入网站名称：");
     if (name && name != "") {
-        var site = window.prompt("请输入网址：");
-        alert(site);
+        var site = window.prompt("请输入包含 \"http(s)://\" 的完整网址：");
         if (site && site != "") {
             // 变量命名为函数名 confirm 出现只执行一次的问题，即无法存储
             conf = window.confirm("确认保存？\n\n网站名：" + name 
