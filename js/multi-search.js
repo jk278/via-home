@@ -38,13 +38,16 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         };
     (c.style.float = "left"),
+    (c.style.appearance = "none"),
         (c.style.height = "46px"),
         (c.style.border = "none"),
-        (c.style.paddingLeft = "6px"),
+        (c.style.paddingLeft = "10px"),
+        (c.style.paddingRight = "10px"),
         (c.style.marginTop= "1.5px"),
-        (c.style.background = "transparent"),
+        (c.style.setProperty("font-size", "var(--m-font-size)")),
+        // (c.style.background = "blue"),
         (c.style.outline = "none"),
-        (c.style.borderRadius = "inherit");
+        (c.style.borderRadius = "100px");
     for (h in g)
         e.push(
             "<option value=" +

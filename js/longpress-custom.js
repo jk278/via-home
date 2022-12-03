@@ -7,9 +7,9 @@ let timer = 0;
 var touchstartHander = function (event) {
     // 阻止默认的屏幕滚动
     event.preventDefault();
-    timer = setTimeout(()=>{
-    LongPress(p, btn);
-    timer = null;
+    timer = setTimeout(() => {
+        LongPress(p, btn);
+        timer = null;
     }, 500);
     // 变量都没传，当然没反应了
 }
@@ -23,9 +23,9 @@ var touchendHander = function (event) {
     clearTimeout(timer);
     // 全不等于，类型也不同
     if (timer !== 0) {
-        	// 判断是否发生长按
-            alert("触发点击");
-        }
+        // 判断是否发生长按
+        alert("触发点击");
+    }
     return false;
 }
 // 移动端
@@ -46,20 +46,21 @@ btn.addEventListener("touchend", touchendHander, false);
 
 changeSite(p, btn);
 
-alert(p.innerHTML+btn.href);
 function LongPress(p, a) {
     // alert("长按被触发");
     var name = window.prompt("请输入网站名：");
     if (name && name != "") {
         var site = window.prompt("请输入网址：");
         if (site && site != "") {
-            // local storage 是同步的！
-            localStorage.setItem('name', name);
-            // 在主 html 读取存储 (不是)
-            localStorage.setItem('site', site);
-            p.innerHTML = name;
-            a.href = site;
-            alert(p.innerHTML+a.href);
+            confirm = window.confirm("确认保存？\n\n网站名：" + p.innerHTML + "\n网址：\u3000" + a.href);
+            if (confirm) {
+                // local storage 是同步的！
+                localStorage.setItem('name', name);
+                // 在主 html 读取存储 (不是)
+                localStorage.setItem('site', site);
+                p.innerHTML = name;
+                a.href = site;
+            }
         }
     }
 }

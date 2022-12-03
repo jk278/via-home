@@ -2,6 +2,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+
+    --m-font-size: 14px;
 }
 
 html {
@@ -251,9 +253,7 @@ span {
     max-width: 600px;
     margin: 20% auto 10% auto;
     padding: 0;
-    border-radius: 0px;
-    background-color: transparent;
-    /*background: rgba(131,175,155,0.9)*/
+    /* background: rgba(131, 175, 155, 0.2) */
 }
 
 /* 收纳所有收藏卡片的容器 */
@@ -263,22 +263,23 @@ span {
     width: 80% !important;
     transition-duration: 0.4s;
     animation: box-container 1s;
-    background: transparent;
+    /* background: rgba(131, 175, 155, 0.4); */
 }
 
 .box_layout {
-    width: 23.9%;
+    /* 每个 div 之间有缩进，占一个空格 */
+    width: 23.5%;
     /* 行内显示 */
     display: inline-block;
     text-align: center;
-    /*background: rgba(131,175,155,0.7);*/
+    /* background: rgba(131, 175, 155, 0.6); */
 }
 
 .box {
     width: 46px;
     margin: 0 auto 0 auto;
     position: relative;
-    /*background: rgba(131,175,155,0.3);*/
+    /* background: rgba(131, 175, 155, 0.8); */
 }
 
 /* 设置卡片链接 */
@@ -348,7 +349,7 @@ span {
 }
 
 #hitokoto {
-    font-size: 14px;
+    font-size: var(--m-font-size);
     text-align: center;
     margin-bottom: 5%;
     transition-duration: 0.2s;

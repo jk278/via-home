@@ -1,6 +1,6 @@
 /* ----- 短句显示的长度 ------ */
-/* ------- 长句显示的长度 ------- */
-/* --------- 长句显示的长度 -------- */
+/* --------- 长句显示的长度 --------- */
+/* ------------ 长句显示的长度 ------------- */
 var sentences = new Array(
     "✎...  偷得浮生半日闲～",
     "✎...  行到水穷处，坐看云起时",
@@ -21,11 +21,11 @@ function changeSize(sizeString, heightStr) {
     sheet.addRule('input::placeholder', 'font-size:' + sizeString + ';transform: translateY(' + heightStr + ')');
 }
 
-changeSize(null, "-1px");
+changeSize(null, "-0.5px");
 
-if (19 < randomSentence.length && randomSentence.length <= 21) {
-    changeSize("13px", "-2px");
+if (17 < randomSentence.length && randomSentence.length <= 19) {
+    changeSize("14px", "-1px");
 }
-else if (21 < randomSentence.length) {
-    changeSize("12px", "-3px");
+else if (19 < randomSentence.length) {
+    changeSize("13px", "-1.5px");
 }
