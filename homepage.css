@@ -135,7 +135,6 @@ img.smaller {
     display: table;
     vertical-align: middle;
     width: 85%;
-    max-width: 600px;
     margin: 10% auto;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.1);
