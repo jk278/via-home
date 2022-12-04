@@ -9,29 +9,30 @@ document.addEventListener("DOMContentLoaded", function () {
                 name: "默认", url: ""
             },
             gg: {
-                name: "谷歌", url: " https://www.google.com/search?query="
+                name: "谷歌", url: "https://www.google.com/search?query="
             },
             bing: {
-                name: "必应", url: " https://cn.bing.com/search?q="
+                name: "必应", url: "https://cn.bing.com/search?q="
             },
             sg: {
                 name: "搜狗",
-                url: " https://m.sogou.com/web/searchList.jsp?keyword="
+                url: "https://m.sogou.com/web/searchList.jsp?keyword="
             },
-            wz: {
-                name: "无追",
-                url: " https://wuzhuiso.com/s?q="
-            },
-            gk: {
-                name: "夸克", url: " https://quark.sm.cn/s?q="
+            yd: {
+                name: "yandex",
+                url: "https://yandex.com/search/touch/?text="
             },
             tt: {
                 name: "头条",
-                url: " https://m.toutiao.com/search?keyword="
+                url: "https://m.toutiao.com/search?keyword="
+            },
+            wz: {
+                name: "无追",
+                url: "https://wuzhuiso.com/s?q="
             },
             zh: {
                 name: "知乎",
-                url: " https://www.zhihu.com/search?q="
+                url: "https://www.zhihu.com/search?q="
             },
             c: {
                 name: "其他", url: localStorage.c || ""
