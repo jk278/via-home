@@ -1,10 +1,14 @@
+// 加载后执行
 document.addEventListener("DOMContentLoaded", function () {
     var h,
+        // 搜索点击块，会读取 input 的内容
         b = document.getElementById("search_submit"),
+        // 创建 select
         c = document.createElement("select"),
         e = [],
         f = search,
         g = {
+            // i 和 gg 是 g 对象的属性
             i: {
                 name: "默认", url: ""
             },
@@ -19,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 url: "https://m.sogou.com/web/searchList.jsp?keyword="
             },
             yd: {
-                name: "yandex",
+                name: "y-dx",
                 url: "https://yandex.com/search/touch/?text="
             },
             tt: {
@@ -38,18 +42,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 name: "其他", url: localStorage.c || ""
             },
         };
+    // select 的样式
     (c.style.float = "left"),
-    (c.style.appearance = "none"),
+        (c.style.appearance = "none"),
         (c.style.height = "30px"),
         (c.style.border = "none"),
         (c.style.padding = "0 10px 0px 9px"),
-        (c.style.margin= "8px 0 0 8px"),
+        (c.style.margin = "8px 0 0 8px"),
         (c.style.setProperty("font-size", "var(--m-font-size)")),
         // 操，要用 backgroundColor
         (c.style.setProperty("-webkit-tap-highlight-color", "rgba(255, 255, 255, 0.1)")),
         (c.style.outline = "none"),
         (c.style.borderRadius = "8px");
+    // 循环 g 中的每一个属性
     for (h in g)
+        // 数组 e 添加元素，创建 option 标签
         e.push(
             "<option value=" +
             h +
@@ -59,7 +66,9 @@ document.addEventListener("DOMContentLoaded", function () {
             g[h].name +
             "</option>"
         );
+    // select 的文本
     (c.innerHTML = e.join("")),
+        // 其他 的选中事件 onchange
         (c.onchange = function () {
             var b, c;
             "c" !== this.value && "m" !== this.value
