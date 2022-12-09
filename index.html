@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="color-scheme" content="light dark">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+    <title>...</title>
+    <link rel="stylesheet" href="homepage.css">
+    <style>
+    </style>
+
+</head>
+
+<body>
+    <div class='frosted-glass' id='gesture-indicator'></div>
+    <div class="header-layout"><img id="header" src="bg/wildness-compress.jpg"></div>
+
+    <div id="content">
+        <div class="search_part">
+            <!-- 多种 logo 可选-->
+            <a class="logo" href="v://bookmark" onclick="" title="书签"><img class="smaller" src="logo/spiral.svg" />
+                <link rel="stylesheet" href="logo/spiral.css">
+            </a>
+
+            <!-- 一句 脚本 -->
+            <script type="text/javascript" src=" http://yijuzhan.com/api/word.php?m=js"></script>
+            <script type="text/javascript">
+                var s = false;
+                var t = document.getElementsByTagName("title")[0];
+                if (s) {
+                    t.innerHTML = str[0] + str[1];
+                } else {
+                    t.innerHTML = str[0];
+                }
+            </script>
+
+            <!-- 切换搜索引擎 脚本 -->
+            <script type="text/javascript" src="js/multi-search.js"></script>
+            <!-- 搜索框 -->
+            <form onsubmit="return search()" class="search_bar" title="搜索">
+                <button onclick="search()" id="search_submit" value="" aria-label="搜索">
+                    <div class="search icon"></div>
+                </button>
+                <span><input class="search" onfocus="showButton()" onblur="hideButton()" type="text" value=""
+                        autocomplete="off" id="search_input" title="搜索"></span>
+            </form>
+        </div>
+
+        <!-- 输入框随机展示精选句子 -->
+        <script type="text/javascript" src="js/random-sentence.js"></script>
+
+        <!-- 注意：引入 html 后主页面的 css 样式不适用于被引入页面。只在本页面生效，引入文件整体适用，但引入文件内容不适用。 js 写入不一样。-->
+        <!-- 书签 html 转 js 太麻烦了！-->
+        <div id="bookmark_part">
+            <link rel="stylesheet" href="icon/svg.css">
+            <div id="box_container">
+
+                <div class="box_layout">
+                    <div class="box">
+                        <p class="title" aria-hidden="true"></p>
+                        <div class="overlay"
+                            style="background: url('icon/sparkk/star.svg') no-repeat;background-size: 75%;background-position:center center;">
+                        </div>
+                        <p class="url" aria-hidden="true">书签</p>
+                        <a href="folder://" onclick="" title="书签"></a>
+                    </div>
+                </div>
+
+                <div class="box_layout">
+                    <div class="box">
+                        <p class="title" aria-hidden="true"></p>
+                        <div class="overlay"
+                            style="background: url('icon/sparkk/align-left.svg') no-repeat;background-size: 75%;background-position:center center;">
+                        </div>
+                        <p class="url" aria-hidden="true">历史</p>
+                        <a href="history://" onclick="" title="历史"></a>
+                    </div>
+                </div>
+
+                <div class="box_layout">
+                    <div class="box">
+                        <p class="title" aria-hidden="true"></p>
+                        <div class="overlay"
+                            style="background: url('icon/sparkk/grid.svg') no-repeat;background-size: 75%;background-position:center center;">
+                        </div>
+                        <p class="url" aria-hidden="true">Infinity</p>
+                        <a href="https://m.inftab.com/#/" onclick="" title="Infinity"></a>
+                    </div>
+                </div>
+
+                <div class="box_layout">
+                    <div class="box">
+                        <p class="title" aria-hidden="true"></p>
+                        <div class="overlay"
+                            style="background: url('icon/sparkk/menu.svg') no-repeat;background-size: 75%;background-position:center center;">
+                        </div>
+                        <p id="custom-text" class="url" aria-hidden="true">长按</p>
+                        <!-- 去掉 href 或 加 # 号 -->
+                        <a id="custom" href="#" onclick="" title="自定义"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="divide">―·❀·―</div>
+        </div>
+
+        <!-- 头图缓存 脚本 效果不佳！-->
+        <!-- <script type="text/javascript" src="js/storage-image.js" defer></script> -->
+
+        <!-- 长按自定义网址 脚本 -->
+        <script type="text/javascript" src="js/longpress-custom.js" defer></script>
+
+        <!-- hitokoto 一言 脚本 -->
+        <div id="hitokoto">
+            <script src=" https://v1.hitokoto.cn/?encode=js&select=%23hitokoto&max_length=20" defer></script>
+            <script>hitokoto()</script>
+        </div>
+
+        <!-- 有吸附效果的动态线条 脚本-->
+        <script type="text/javascript" src="js/animation/spider-web.js" defer></script>
+
+        <!-- 樱花飘落 脚本-->
+        <!-- <script type="text/javascript" src="js/animation/sakura-fall.js"></script> -->
+
+        <!-- 雪花飘落 脚本-->
+        <!-- <script src='js/animation/snowflake2.js'></script> -->
+
+        <!-- 网页鼠标点击特效 -->
+        <!-- <script type="text/javascript" src="js/animation/click-word.js"></script> -->
+
+
+
+        <!-- 检测键盘 脚本 获取窗口大小，安卓苹果不同-->
+        <!--script>
+            var originalHeight =
+        document.documentElement.clientHeight || document.body.clientHeight;
+            window.onresize = function() {
+            //键盘弹起与隐藏都会引起窗口的高度发生变化
+            var resizeHeight =
+            document.documentElement.clientHeight || document.body.clientHeight;
+            if (resizeHeight - 0 < originalHeight - 0) {
+                //当软键盘弹起，在此处操作
+              
+            } else {
+                //当软键盘收起，在此处操作
+
+            };}
+        </script-->
+
+        <!-- 处理搜索状态 默认脚本 -->
+        <script type="text/javascript" src="js/search-process.js"></script>
+
+        <!-- 引入搜索建议 默认脚本 -->
+        <script charset="gbk" src="file:///android_asset/opensug.js"></script>
+
+        <!-- 显示搜索建议 默认脚本 -->
+        <script type="text/javascript">
+            function show(str) {
+                var searchbox = document.getElementById("search_input"); searchbox.innerHTML = str; searchbox.blur(); search();
+            } var params = {
+                "XOffset": 0,
+                "YOffset": 0,
+                "fontColor": "#666666",
+                "fontColorHI": "#FFF",
+                "fontSize": "14px",
+                "borderColor": "#eee",
+                "bgcolorHI": "#7B90E3",
+                "sugSubmit": false
+            }; BaiduSuggestion.bind("search_input", params, show);
+        </script>
+    </div>
+</body>
+
+</html>
