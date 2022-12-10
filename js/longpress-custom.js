@@ -36,8 +36,8 @@ btn.addEventListener("touchend", function (e) {
     if (timer !== 0 && Math.abs(now.x - document.startPoint.x)
         + Math.abs(now.y - document.startPoint.y) < 5) {
         // 执行点击事件
-        e.target.dispatchEvent(tap);
-        // window.location.href = localStorage.getItem("site");
+        // e.target.dispatchEvent(tap);
+        window.location.href = localStorage.getItem("site");
     }
     return false;
 });
