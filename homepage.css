@@ -382,7 +382,7 @@ span {
 .dialog-footer {
     padding: 15px;
     border-top: 1px solid #ccc;
-    text-align: right;
+    text-align: centers;
 }
 
 /* Add a layer of overlay to the page when the dialog is open */
