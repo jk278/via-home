@@ -86,6 +86,7 @@
                         </div>
                         <p class="url" aria-hidden="true">Infinity</p>
                         <!-- 注意 a 标签的 href 属性如果为空，点击会刷新 -->
+                        <!-- showModal() 改成 show(), 则可以与页面的其他元素进行交互-->
                         <a onclick="document.querySelector('#recommendDialog').showModal()" title="Infinity"></a>
                     </div>
                 </div>
@@ -105,16 +106,20 @@
             <div class="divide">―·❀·―</div>
         </div>
 
-        <dialog id="recommendDialog">
-            <h1>推荐</h1>
-            <p>Dialog content goes here.</p>
-            <button onclick="document.querySelector('#recommendDialog').close()">Close</button>
+        <dialog id="recommendDialog" class="dialog">
+            <div class="dialog-header">
+                <h3>推荐</h3>
+              </div>
+              <div class="dialog-content">
+                <p>Dialog content goes here...</p>
+              </div>
+              <div class="dialog-footer">
+                <button onclick="document.querySelector('#recommendDialog').close()">Close</button>
+              </div>
         </dialog>
 
         <!-- 头图缓存 脚本 效果不佳！-->
         <!-- <script type="text/javascript" src="js/storage-image.js" defer></script> -->
-
-        
                     
         <!-- 长按自定义网址 脚本 -->
         <script type="text/javascript" src="js/longpress-custom.js" defer></script>

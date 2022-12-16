@@ -356,6 +356,37 @@ span {
     animation: divide 1s;
 }
 
+
+  /* 对话框样式 */
+  .dialog {
+    width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* background-color: #fff; */
+    overflow: hidden;
+  }
+
+  /* 对话框头部样式 */
+  .dialog-header {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    /* background-color: #f8f8f8; */
+  }
+
+  /* 对话框内容样式 */
+  .dialog-content {
+    padding: 15px;
+  }
+
+  /* 对话框底部样式 */
+  .dialog-footer {
+    padding: 15px;
+    border-top: 1px solid #ccc;
+    text-align: right;
+  }
+
+
 #hitokoto {
     font-size: var(--m-font-size);
     text-align: center;
