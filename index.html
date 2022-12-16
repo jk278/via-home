@@ -85,7 +85,8 @@
                             style="background: url('icon/sparkk/grid.svg') no-repeat;background-size: 75%;background-position:center center;">
                         </div>
                         <p class="url" aria-hidden="true">Infinity</p>
-                        <a href="" onclick="document.querySelector('#myDialog').showModal()" title="Infinity"></a>
+                        <!-- 注意 a 标签的 href 属性如果为空，点击会刷新 -->
+                        <a onclick="document.querySelector('#recommendDialog').showModal()" title="Infinity"></a>
                     </div>
                 </div>
 
@@ -104,10 +105,10 @@
             <div class="divide">―·❀·―</div>
         </div>
 
-        <dialog id="myDialog">
-            <h1>Dialog Title</h1>
+        <dialog id="recommendDialog">
+            <h1>推荐</h1>
             <p>Dialog content goes here.</p>
-            <button onclick="document.querySelector('#myDialog').close()">Close</button>
+            <button onclick="document.querySelector('#recommendDialog').close()">Close</button>
         </dialog>
 
         <!-- 头图缓存 脚本 效果不佳！-->
