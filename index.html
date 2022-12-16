@@ -85,7 +85,7 @@
                             style="background: url('icon/sparkk/grid.svg') no-repeat;background-size: 75%;background-position:center center;">
                         </div>
                         <p class="url" aria-hidden="true">Infinity</p>
-                        <a href="" onclick="openWindow()" title="Infinity"></a>
+                        <a href="" onclick="document.querySelector('#myDialog').showModal()" title="Infinity"></a>
                     </div>
                 </div>
 
@@ -104,14 +104,16 @@
             <div class="divide">―·❀·―</div>
         </div>
 
+        <dialog id="myDialog">
+            <h1>Dialog Title</h1>
+            <p>Dialog content goes here.</p>
+            <button onclick="document.querySelector('#myDialog').close()">Close</button>
+        </dialog>
+
         <!-- 头图缓存 脚本 效果不佳！-->
         <!-- <script type="text/javascript" src="js/storage-image.js" defer></script> -->
 
-        <script>
-            function openWindow() {
-              window.open("recommand-popup.html", "MyWindow", "width=300,height=200");
-            }
-          </script>
+        
                     
         <!-- 长按自定义网址 脚本 -->
         <script type="text/javascript" src="js/longpress-custom.js" defer></script>
