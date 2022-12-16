@@ -357,36 +357,36 @@ span {
 }
 
 
-  /* 对话框样式 */
-  .dialog {
+/* 对话框样式 */
+.dialog {
     width: 500px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     /* background-color: #fff; */
     overflow: hidden;
-  }
+}
 
-  /* 对话框头部样式 */
-  .dialog-header {
+/* 对话框头部样式 */
+.dialog-header {
     padding: 15px;
     border-bottom: 1px solid #ccc;
     /* background-color: #f8f8f8; */
-  }
+}
 
-  /* 对话框内容样式 */
-  .dialog-content {
+/* 对话框内容样式 */
+.dialog-content {
     padding: 15px;
-  }
+}
 
-  /* 对话框底部样式 */
-  .dialog-footer {
+/* 对话框底部样式 */
+.dialog-footer {
     padding: 15px;
     border-top: 1px solid #ccc;
     text-align: right;
-  }
+}
 
-  /* Add a layer of overlay to the page when the dialog is open */
+/* Add a layer of overlay to the page when the dialog is open */
 dialog:target {
     display: block;
     position: fixed;
@@ -394,9 +394,10 @@ dialog:target {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
-  }
-  
+    background-color: rgba(0, 0, 0, 0.5);
+    /* semi-transparent black */
+}
+
 
 #hitokoto {
     font-size: var(--m-font-size);
