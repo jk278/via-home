@@ -372,17 +372,17 @@ span {
 /* 对话框样式 */
 .dialog {
     /* 以下四行实现完全居中 */
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-weight: lighter;
     width: 80%;
-    border: 1px solid #ccc;
+    border: 0;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* 水平偏移，垂直偏移，模糊距离，阴影颜色，添加多个阴影，可以使用逗号分隔 */
+    box-shadow: 0 0 3px #808080;
     background-color: var(--v-bookmark-container-color);
-    z-index: 10;
-    overflow: hidden;
     /* 首页 js 中禁用 0.5s 点击, 避免打断动画 (可优化) */
     animation: dialog 0.5s;
     transition: opacity 0.5s ease, transform 0.5s;
@@ -394,7 +394,7 @@ span {
 
 @keyframes dialog {
     from {
-        transform: translate(-50%, -50%) scale(0.75);
+        transform: translate(-50%, -40%) scale(0.75);
     }
 
     to {
@@ -406,13 +406,14 @@ span {
     /* 在关闭时添加 closing 类 */
     opacity: 0;
     /* 关闭时设置为透明 */
-    transform: translate(-50%, -40%) scaleX(0.75) scaleY(0.75);
+    transform: translate(-50%, -40%) scale(0.75);
 }
 
 /* 对话框头部样式 */
 .dialog-header {
     padding: 15px;
-    border-bottom: 1px solid #ccc;
+    /* 模糊线条效果 */
+    box-shadow: 0 -1px 5px -1px #808080;
     /* background-color: #f8f8f8; */
 }
 
@@ -463,7 +464,7 @@ dialog::backdrop {
     }
 }
 
-dialog.dialog.closing::backdrop {
+dialog.closing::backdrop {
     opacity: 0;
 }
 
@@ -471,16 +472,19 @@ dialog.dialog.closing::backdrop {
     text-align: left;
     margin: 0 auto 5%;
     width: 90% !important;
+    display: flex;
+    flex-wrap: wrap;
     /* background: rgba(131, 175, 155, 0.4); */
 }
 
-.dialog-box_layout {
+.dialog-box {
     /* 每个 div 之间有缩进，占一个空格 */
-    width: 23.5%;
-    /* 行内显示 */
-    display: inline-block;
+    flex-basis: 25%;
     text-align: center;
-    margin-bottom: 6%;
+    width: 46px;
+    margin: 0 auto 6%;
+    display: flex;
+    flex-direction: column;
     /* background: rgba(131, 175, 155, 0.6); */
 }
 
@@ -489,6 +493,7 @@ dialog.dialog.closing::backdrop {
     width: 46px;
     line-height: 46px;
     height: 46px;
+    margin: auto;
     box-shadow: 0 0 18px rgba(70, 70, 40, 0.255);
     backdrop-filter: blur(5px);
     background-color: rgba(255, 255, 255, .100);
