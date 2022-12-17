@@ -205,8 +205,12 @@
             // const overlay = document.getElementById('overlay');
 
             openButton.addEventListener('click', () => {
+                // 阻止 href 的默认行为
                 event.preventDefault();
-                dialog.showModal();
+                setTimeout(function () {
+                    // 在这里执行点击事件
+                    dialog.showModal();
+                }, 120);
                 // overlay.style.display = 'block';
             });
 
