@@ -486,7 +486,6 @@ dialog.dialog.closing::backdrop {
 
 .dialog-title {
     border-radius: 8px;
-    color: #FAFAFA;
     width: 46px;
     line-height: 46px;
     height: 46px;
