@@ -406,7 +406,7 @@ span {
     /* 在关闭时添加 closing 类 */
     opacity: 0;
     /* 关闭时设置为透明 */
-    transform: translate(-50%, -50%) scale(0.5);
+    transform: translate(-50%, -40%) scaleX(0.75) scaleY(0.75);
 }
 
 /* 对话框头部样式 */
