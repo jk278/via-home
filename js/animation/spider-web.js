@@ -1,4 +1,4 @@
-!function () {
+! function () {
     function n(n, e, t) {
         return n.getAttribute(e) || t
     }
@@ -8,8 +8,24 @@
     }
 
     function t() {
-        var t = e("script"), o = t.length, i = t[o - 1];
-        return { l: o, z: n(i, "zIndex", -1), o: n(i, "opacity", .5), c: n(i, "color", "0,0,0"), n: n(i, "count", 99) }
+        var t = e("script"),
+            o = t.length,
+            i = t[o - 1];
+        // 判断暗色模式
+        let color = "";
+        var mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        if (mediaQuery.matches) {
+            color = "255,255,255";
+        } else {
+            color = "0,0,0";
+        }
+        return {
+            l: o,
+            z: n(i, "zIndex", -1),
+            o: n(i, "opacity", .5),
+            c: n(i, "color", color),
+            n: n(i, "count", 99)
+        }
     }
 
     function o() {
@@ -24,18 +40,38 @@
         }), x(i)
     }
 
-    var a, c, u, m = document.createElement("canvas"), d = t(), l = "c_n" + d.l, r = m.getContext("2d"),
+    var a, c, u, m = document.createElement("canvas"),
+        d = t(),
+        l = "c_n" + d.l,
+        r = m.getContext("2d"),
         x = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (n) {
             window.setTimeout(n, 1e3 / 45)
-        }, w = Math.random, y = { x: null, y: null, max: 2e4 };
-    m.id = l, m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z + ";opacity:" + d.o, e("body")[0].appendChild(m), o(), window.onresize = o/*, window.onmousemove = function (n) {
-        n = n || window.event, y.x = n.clientX, y.y = n.clientY
-    }, window.onmouseout = function () {
-        y.x = null, y.y = null
-    }*/;
+        },
+        w = Math.random,
+        y = {
+            x: null,
+            y: null,
+            max: 2e4
+        };
+    m.id = l, m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z + ";opacity:" + d.o, e("body")[0].appendChild(m), o(), window.onresize = o
+        /*, window.onmousemove = function (n) {
+                n = n || window.event, y.x = n.clientX, y.y = n.clientY
+            }, window.onmouseout = function () {
+                y.x = null, y.y = null
+            }*/
+        ;
     for (var s = [], f = 0; d.n > f; f++) {
-        var h = w() * a, g = w() * c, v = 2 * w() - 1, p = 2 * w() - 1;
-        s.push({ x: h, y: g, xa: v, ya: p, max: 6e3 })
+        var h = w() * a,
+            g = w() * c,
+            v = 2 * w() - 1,
+            p = 2 * w() - 1;
+        s.push({
+            x: h,
+            y: g,
+            xa: v,
+            ya: p,
+            max: 6e3
+        })
     }
     u = s.concat([y]), setTimeout(function () {
         i()
