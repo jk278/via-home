@@ -395,10 +395,12 @@ span {
 }
 
 /* 对话框底部样式 */
+/* 
 .dialog-footer {
     border-top: 1px solid #ccc;
-    /* text-align: center; */
+    /* text-align: center;
 }
+*/
 
 /* 遮罩/蒙版样式 */
 /*
@@ -460,9 +462,11 @@ dialog::backdrop {
     font-size: 10px;
 }
 
+/* 
 #close-button {
     padding: 16px;
 }
+ */
 
 button {
     /* background-color: blue; */

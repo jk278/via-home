@@ -1,5 +1,5 @@
-var btn = document.querySelector("#custom");
-let p = document.getElementById("custom-text");
+const btn = document.querySelector("#custom");
+const p = document.getElementById("custom-text");
 
 let timer = 0;
 // 坐标
