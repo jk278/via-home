@@ -379,6 +379,18 @@ span {
     background-color: var(--v-bookmark-container-color);
     z-index: 10;
     overflow: hidden;
+    animation: dialog 0.5s;
+}
+
+@keyframes dialog {
+    from {
+      transform: translate(-50%, -50%) scale(0.75);
+      opacity: 0.75;
+    }
+    to {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
 }
 
 /* 对话框头部样式 */
@@ -418,7 +430,20 @@ span {
 
 
 dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgb(0, 0, 0);
+    opacity: 0.5;
+    transition-duration: 0.2s;
+    animation: backdrop 1s;
+}
+
+@keyframes backdrop {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
 }
 
 #dialog-box_container {
