@@ -246,7 +246,6 @@ span {
 
 /* 书签部分 */
 #bookmark_part {
-    text-align: center;
     max-width: 600px;
     margin: 20% auto 10%;
     padding: 0;
@@ -286,7 +285,7 @@ span {
     top: 0;
 }
 
-/* 文字卡片 */
+/* 文字卡片, 半透明层 */
 .title {
     border-radius: 8px;
     color: #FAFAFA;
@@ -359,13 +358,20 @@ span {
 
 /* 对话框样式 */
 .dialog {
-    width: 500px;
+    /* 以下四行实现完全居中 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     /* background-color: #fff; */
+    z-index: 10;
     overflow: hidden;
 }
+
 /* 对话框头部样式 */
 .dialog-header {
     padding: 15px;
@@ -376,27 +382,97 @@ span {
 /* 对话框内容样式 */
 .dialog-content {
     padding: 15px;
+    margin: 10% auto 0;
 }
 
 /* 对话框底部样式 */
 .dialog-footer {
-    padding: 15px;
     border-top: 1px solid #ccc;
-    text-align: centers;
+    /* text-align: center; */
 }
 
-/* Add a layer of overlay to the page when the dialog is open */
-dialog:target {
-    display: block;
+/* 遮罩/蒙版样式 */
+/*
+.modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    /* semi-transparent black */
+    z-index: 9;
+    display: none;
+}
+ */
+
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
+#dialog-box_container {
+    text-align: left;
+    margin: 0 auto 5%;
+    width: 90% !important;
+    /* background: rgba(131, 175, 155, 0.4); */
+}
+
+.dialog-box_layout {
+    /* 每个 div 之间有缩进，占一个空格 */
+    width: 23.5%;
+    /* 行内显示 */
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 6%;
+    /* background: rgba(131, 175, 155, 0.6); */
+}
+
+.dialog-title {
+    border-radius: 8px;
+    color: #FAFAFA;
+    width: 46px;
+    line-height: 46px;
+    height: 46px;
+    box-shadow: 0 0 18px rgba(70, 70, 40, 0.255);
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, .100);
+}
+
+.dialog-url {
+    margin: 2px auto;
+    width: 48px;
+    height: 20px;
+    line-height: 20px;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: clip;
+    -o-text-overflow: clip;
+    font-size: 10px;
+}
+
+#close-button {
+    padding: 16px;
+}
+
+button {
+    /* background-color: blue; */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* 
+button:hover {
+    background-color: darkblue;
+}
+ */
+button:active {
+    background-color: lightblue;
+}
 
 #hitokoto {
     font-size: var(--m-font-size);

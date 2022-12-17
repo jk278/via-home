@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dialog {
+            /* 以下四行实现完全居中 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* background-color: #fff; */
+            z-index: 10;
+            overflow: hidden;
+        }
+
+        dialog::backdrop {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        button {
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="open-button" title="推荐">打开弹窗</button>
+
+    <dialog id="recommend-dialog" class="dialog">
+        <div class="dialog-header">
+            <h3>推荐</h3>
+        </div>
+        <div class="dialog-content">
+            <p>正在升级调试中...</p>
+        </div>
+        <div class="dialog-footer">
+            <button id="close-button" class="close-click">Close</button>
+        </div>
+    </dialog>
+
+    <div id="overlay" class="modal-overlay close-click"></div>
+
+    <script>
+        const openButton = document.getElementById('open-button');
+        const closeContainer = document.querySelector('.close-click');
+        const dialog = document.getElementById('recommend-dialog');
+        const overlay = document.getElementById('overlay');
+
+        openButton.addEventListener('click', () => {
+            dialog.showModal();
+            overlay.style.display = 'block';
+        });
+
+        closeContainer.addEventListener('click', () => {
+            dialog.close();
+            overlay.style.display = 'none';
+        });
+        document.addEventListener('click', function (event) {
+            // If the user clicked on the dialog's backdrop, close the dialog
+            if (event.target === dialog) {
+                dialog.close();
+            }
+        });
+    </script>
+</body>
+
+</html>
