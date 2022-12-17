@@ -13,8 +13,8 @@
     box-shadow: 0 0 3px #808080;
     background-color: var(--v-bookmark-container-color);
     /* 首页 js 中禁用 0.5s 点击, 避免打断动画 (可优化) */
-    animation: dialog 0.5s;
-    transition: opacity 0.5s ease, transform 0.5s;
+    animation: dialog 0.3s;
+    transition: opacity 0.4s ease, transform 0.4s;
     /* 动画效果：0.5 秒内淡出 */
     /* linear--匀速, ease--快-慢-快, ease-in--慢-快, ease-out--快-慢, ease-in-out--慢-快-慢 */
     opacity: 1;
@@ -23,7 +23,7 @@
 
 @keyframes dialog {
     from {
-        transform: translate(-50%, -40%) scale(0.75);
+        transform: translate(-50%, -40%) scale(0.8);
     }
 
     to {
