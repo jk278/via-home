@@ -1,11 +1,14 @@
 @media (prefers-color-scheme: light) {
     :root {
         --v-bookmark-container-color: #ffffff;
-    }}
+    }
+}
+
 @media (prefers-color-scheme: dark) {
-    body {   
+    body {
         --v-bookmark-container-color: #232323;
-    }}
+    }
+}
 
 * {
     padding: 0;
@@ -327,6 +330,7 @@ span {
     width: 46px;
     height: 46px;
     transition-duration: 0.2s;
+    /* 规定过渡效果何时开始。默认是 0 */
     animation: overlay 1s;
 }
 
@@ -379,16 +383,30 @@ span {
     background-color: var(--v-bookmark-container-color);
     z-index: 10;
     overflow: hidden;
+    /* 首页 js 中禁用 0.5s 点击, 避免打断动画 (可优化) */
     animation: dialog 0.5s;
+    transition: opacity 0.5s, transform 0.5s;
+    /* 动画效果：0.5 秒内淡出 */
+    /* linear--匀速, ease--慢-快-慢, ease-in--慢-快, ease-out--快-慢, ease-in-out--慢-快-慢 */
+    opacity: 1;
+    /* 初始状态为不透明 */
 }
 
 @keyframes dialog {
     from {
-      transform: translate(-50%, -50%) scale(0.75);
+        transform: translate(-50%, -50%) scale(0.75);
     }
+
     to {
-      transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%) scale(1);
     }
+}
+
+.dialog.closing {
+    /* 在关闭时添加 closing 类 */
+    opacity: 0;
+    /* 关闭时设置为透明 */
+    transform: translate(-50%, -50%) scale(0.75);
 }
 
 /* 对话框头部样式 */
@@ -431,7 +449,8 @@ dialog::backdrop {
     background-color: rgb(0, 0, 0);
     opacity: 0.5;
     transition-duration: 0.2s;
-    animation: backdrop 1s;
+    animation: backdrop 0.5s;
+    transition: opacity 0.5s;
 }
 
 @keyframes backdrop {
@@ -439,9 +458,13 @@ dialog::backdrop {
         opacity: 0;
     }
 
-    50% {
+    100% {
         opacity: 0.5;
     }
+}
+
+dialog.dialog.closing::backdrop {
+    opacity: 0;
 }
 
 #dialog-box_container {

@@ -204,14 +204,23 @@
             const dialog = document.getElementById('recommend-dialog');
             // const overlay = document.getElementById('overlay');
 
+
+            let enable = true;
             openButton.addEventListener('click', () => {
                 // 阻止 href 的默认行为
                 event.preventDefault();
                 setTimeout(function () {
                     // 在这里执行点击事件
                     dialog.showModal();
+                    enable = false;
                 }, 120);
                 // overlay.style.display = 'block';
+                /*
+                const style = window.getComputedStyle(dialog);
+                const animationName = style.animationName;
+                const animationDuration = style.animationDuration;
+                 */
+                // document.getElementById("id").style.xxx 只能获取到内嵌方式设置的样式值
             });
 
             /*
@@ -219,12 +228,33 @@
                 dialog.close();
                 // overlay.style.display = 'none';
             });
-            */
+             */
+
+            /*
+            function clickHandler(event) {
+                // 处理点击事件
+            }
+            element.addEventListener('click', clickHandler);
+             */
+
+
+            function animationEndHandler(event) {
+                enable = true;
+            }
+
+            dialog.addEventListener('animationend', animationEndHandler);
+
             document.addEventListener('click', function (event) {
                 // If the user clicked on the dialog's backdrop, close the dialog
-                if (event.target === dialog) {
-                    dialog.close();
+                if (event.target === dialog && enable) {
+                    dialog.classList.add('closing');
+                    setTimeout(function () {
+                        // 在这里执行点击事件
+                        dialog.close();
+                        dialog.classList.remove('closing');
+                    }, 500);
                     // overlay.style.display = 'none';
+
                 }
             });
 
