@@ -385,9 +385,9 @@ span {
     overflow: hidden;
     /* 首页 js 中禁用 0.5s 点击, 避免打断动画 (可优化) */
     animation: dialog 0.5s;
-    transition: opacity 0.5s, transform 0.5s;
+    transition: opacity 0.5s ease, transform 0.5s;
     /* 动画效果：0.5 秒内淡出 */
-    /* linear--匀速, ease--慢-快-慢, ease-in--慢-快, ease-out--快-慢, ease-in-out--慢-快-慢 */
+    /* linear--匀速, ease--快-慢-快, ease-in--慢-快, ease-out--快-慢, ease-in-out--慢-快-慢 */
     opacity: 1;
     /* 初始状态为不透明 */
 }
@@ -406,7 +406,7 @@ span {
     /* 在关闭时添加 closing 类 */
     opacity: 0;
     /* 关闭时设置为透明 */
-    transform: translate(-50%, -50%) scale(0.75);
+    transform: translate(-50%, -50%) scale(0.5);
 }
 
 /* 对话框头部样式 */
