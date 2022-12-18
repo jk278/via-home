@@ -271,8 +271,8 @@ span {
 }
 
 .box_layout {
-    /* 每个 div 之间有缩进，占一个空格 */
-    width: 23.5%;
+    /* 每个 div 之间有缩进，占一个空格，压缩时移除 */
+    width: 25%;
     /* 行内显示 */
     display: inline-block;
     text-align: center;
