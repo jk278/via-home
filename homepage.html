@@ -190,7 +190,6 @@
             // const overlay = document.getElementById('overlay');
 
 
-            let enable = true;
             openButton.addEventListener('click', () => {
                 // 阻止 href 的默认行为
                 event.preventDefault();
@@ -200,12 +199,7 @@
                     dialog.showModal();
                     dialog.style.opacity = '1';
                     dialog.classList.add('open');
-                    enable = false;
                 }, 50);
-
-                setTimeout(function () {
-                    enable = true;
-                }, 350);
                 // overlay.style.display = 'block';
                 /*
                 const style = window.getComputedStyle(dialog);
@@ -233,7 +227,7 @@
 
             document.addEventListener('click', function (event) {
                 // If the user clicked on the dialog's backdrop, close the dialog
-                if (event.target === dialog && enable) {
+                if (event.target === dialog) {
                     dialog.classList.remove('open');
                     dialog.style.opacity = '0';
                     setTimeout(function () {
