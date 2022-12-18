@@ -20,8 +20,8 @@
     <div id="content">
         <div class="search_part">
             <!-- 多种 logo 可选-->
-            <a class="logo" href="v://bookmark" onclick="" title="书签"><img class="smaller" src="logo/spiral.svg" />
-                <link rel="stylesheet" href="logo/spiral.css">
+            <a class="logo" href="v://bookmark" onclick="" title="书签"><img id="logo" class="smaller" src="logo/spiral.svg" />
+                <link rel="stylesheet" href="logo/spiral.scss">
             </a>
 
             <!-- 一句 脚本 -->
@@ -263,6 +263,14 @@
         </script>
         <!-- 头图缓存 脚本 效果不佳！-->
         <!-- <script type="text/javascript" src="js/storage-image.js" defer></script> -->
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+  var imgElement = document.getElementById('logo');
+  imgElement.src = imgElement.src;
+});
+
+        </script>
 
         <!-- 长按自定义网址 脚本 -->
         <script type="text/javascript" src="js/longpress-custom.js" defer></script>
