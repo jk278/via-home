@@ -194,11 +194,18 @@
             openButton.addEventListener('click', () => {
                 // 阻止 href 的默认行为
                 event.preventDefault();
+                // 延时是为为了让用户看到页面上的反馈
                 setTimeout(function () {
                     // 在这里执行点击事件
                     dialog.showModal();
+                    dialog.style.opacity = '1';
+                    dialog.classList.add('open');
                     enable = false;
-                }, 120);
+                }, 50);
+
+                setTimeout(function () {
+                    enable = true;
+                }, 350);
                 // overlay.style.display = 'block';
                 /*
                 const style = window.getComputedStyle(dialog);
@@ -209,34 +216,29 @@
             });
 
             /*
-            closeButton.addEventListener('click', () => {
-                dialog.close();
-                // overlay.style.display = 'none';
-            });
-             */
-
-            /*
             function clickHandler(event) {
                 // 处理点击事件
             }
             element.addEventListener('click', clickHandler);
              */
 
-
+             /*
             function animationEndHandler(event) {
                 enable = true;
+                alert("弹窗完成");
             }
 
             dialog.addEventListener('animationend', animationEndHandler);
+            */
 
             document.addEventListener('click', function (event) {
                 // If the user clicked on the dialog's backdrop, close the dialog
                 if (event.target === dialog && enable) {
-                    dialog.classList.add('closing');
+                    dialog.classList.remove('open');
+                    dialog.style.opacity = '0';
                     setTimeout(function () {
                         // 在这里执行点击事件
                         dialog.close();
-                        dialog.classList.remove('closing');
                     }, 500);
                     // overlay.style.display = 'none';
 
