@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#ff0000">
+  <title>Dynamic Theme Color</title>
+</head>
+<body>
+  <h1>Dynamic Theme Color</h1>
+  <p>This page demonstrates how to use JavaScript to animate the theme color of a webpage.</p>
+</body>
+<script>
+  function animateThemeColor() {
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    const startColor = '#ff0000';
+    const endColor = '#0000ff';
+    let currentColor = startColor;
+
+    function updateThemeColor() {
+      currentColor = currentColor.match(/[\d\w]{2}/g).map((x, i) => {
+        return Math.max(Math.min(Math.floor(parseInt(x, 16) + (parseInt(endColor.slice(i * 2, i * 2 + 2), 16) - parseInt(startColor.slice(i * 2, i * 2 + 2), 16)) / 100), 255), 0).toString(16).padStart(2, '0');
+      }).join('');
+
+      themeColor.setAttribute('content', currentColor);
+    }
+
+    setInterval(updateThemeColor, 10);
+  }
+
+  animateThemeColor();
+</script>
+</html>
