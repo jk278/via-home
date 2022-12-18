@@ -31,7 +31,6 @@
     /* linear--匀速, ease--快-慢-快, ease-in--慢-快, ease-out--快-慢, ease-in-out--慢-快-慢 */
     opacity: 1;
     /* 初始状态为不透明 */
-    ba
 }
 
 @keyframes dialog {

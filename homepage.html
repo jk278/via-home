@@ -6,7 +6,7 @@
     <meta name="color-scheme" content="light dark">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
     <title>...</title>
-    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="index.css">
     <style>
     </style>
 
@@ -84,8 +84,10 @@
                         <div class="overlay"
                             style="background: url('icon/sparkk/grid.svg') no-repeat;background-size: 75%;background-position:center center;">
                         </div>
-                        <p class="url" aria-hidden="true">Infinity</p>
-                        <a href="https://m.inftab.com/#/" onclick="" title="Infinity"></a>
+                        <p class="url" aria-hidden="true">推荐</p>
+                        <!-- 注意 a 标签的 href 属性如果为空，点击会刷新 -->
+                        <!-- showModal() 改成 show(), 则可以与页面的其他元素进行交互-->
+                        <a href="" id="open-button" title="推荐"></a>
                     </div>
                 </div>
 
@@ -97,24 +99,174 @@
                         </div>
                         <p id="custom-text" class="url" aria-hidden="true">长按</p>
                         <!-- 去掉 href 或 加 # 号 -->
-                        <a id="custom" href="#" onclick="" title="自定义"></a>
+                        <a id="custom" title="自定义"></a>
                     </div>
                 </div>
             </div>
             <div class="divide">―·❀·―</div>
         </div>
 
+        <!-- hitokoto 一言 脚本 -->
+        <div id="hitokoto">
+            <script src=" https://v1.hitokoto.cn/?encode=js&select=%23hitokoto&max_length=20" defer></script>
+            <script>hitokoto();</script>
+            <!-- 为了方便后续压缩，这里应该严格写分号 -->
+        </div>
+
+        <script>document.body.classList.add("loaded");</script>
+
+        <dialog id="recommend-dialog" class="dialog">
+            <div class="dialog-header">
+                <p>推荐</p>
+            </div>
+            <div class="dialog-content">
+                <div id="dialog-box_container">
+
+                    <div class="dialog-box">
+                        <p class="dialog-title" aria-hidden="true">I</p>
+                        <div class="overlay"></div>
+                        <p class="dialog-url" aria-hidden="true">Infinity</p>
+                        <a href="https://m.inftab.com/#/" onclick="" title="Infinity"></a>
+                    </div>
+
+                    <div class="dialog-box">
+                        <p class="dialog-title" aria-hidden="true">Y</p>
+                        <div class="overlay"></div>
+                        <p class="dialog-url" aria-hidden="true">Youtube</p>
+                        <a href="https://m.youtube.com/" onclick="" title="Youtube"></a>
+                    </div>
+
+                    <div class="dialog-box">
+                        <p class="dialog-title" aria-hidden="true">影</p>
+                        <div class="overlay"></div>
+                        <p class="dialog-url" aria-hidden="true">土拨鼠电影</p>
+                        <a href="https://www.tbsdy.com" onclick="" title="土拨鼠电影"></a>
+                    </div>
+
+                    <div class="dialog-box">
+                        <p class="dialog-title" aria-hidden="true">音</p>
+                        <div class="overlay"></div>
+                        <p class="dialog-url" aria-hidden="true">MusicEnc</p>
+                        <a href="https://www.musicenc.com/" onclick="" title="MusicEnc"></a>
+                    </div>
+
+                    <div class="dialog-box">
+                        <p class="dialog-title" aria-hidden="true">刊</p>
+                        <div class="overlay"></div>
+                        <p class="dialog-url" aria-hidden="true">参考网</p>
+                        <a href="https://my.fx361.com/m_login" onclick="" title="参考网"></a>
+                    </div>
+
+                    <div class="dialog-box">
+                        <p class="dialog-title" aria-hidden="true">度</p>
+                        <div class="overlay"></div>
+                        <p class="dialog-url" aria-hidden="true">度盘解析</p>
+                        <a href="https://www.kelongwo.com/Resource_function/pan/baidu/" onclick="" title="度盘解析"></a>
+                    </div>
+
+                    <div class="dialog-box">
+                        <p class="dialog-title" aria-hidden="true">古</p>
+                        <div class="overlay"></div>
+                        <p class="dialog-url" aria-hidden="true">古诗文网</p>
+                        <a href="https://m.gushiwen.cn/" onclick="" title="古诗文网"></a>
+                    </div>
+
+                    <div class="dialog-box">
+                        <p class="dialog-title" aria-hidden="true">美</p>
+                        <div class="overlay"></div>
+                        <p class="dialog-url" aria-hidden="true">唯美女生</p>
+                        <a href="https://www.vmgirls.net/" onclick="" title="唯美女生"></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="dialog-footer">
+                <div id="close-button" class="close-click">关闭</div>
+            </div> -->
+        </dialog>
+
+        <!-- This is the overlay element -->
+        <!-- <div id="overlay" class="modal-overlay close-click"></div> -->
+
+        <!-- This script opens and closes the dialog and shows/hides the overlay -->
+        <script>
+            const openButton = document.getElementById('open-button');
+            // const closeButton = document.getElementById('close-button');
+            // const closeButton = document.getElementById('close-button');
+            const dialog = document.getElementById('recommend-dialog');
+            // const overlay = document.getElementById('overlay');
+
+
+            let enable = true;
+            openButton.addEventListener('click', () => {
+                // 阻止 href 的默认行为
+                event.preventDefault();
+                setTimeout(function () {
+                    // 在这里执行点击事件
+                    dialog.showModal();
+                    enable = false;
+                }, 120);
+                // overlay.style.display = 'block';
+                /*
+                const style = window.getComputedStyle(dialog);
+                const animationName = style.animationName;
+                const animationDuration = style.animationDuration;
+                 */
+                // document.getElementById("id").style.xxx 只能获取到内嵌方式设置的样式值
+            });
+
+            /*
+            closeButton.addEventListener('click', () => {
+                dialog.close();
+                // overlay.style.display = 'none';
+            });
+             */
+
+            /*
+            function clickHandler(event) {
+                // 处理点击事件
+            }
+            element.addEventListener('click', clickHandler);
+             */
+
+
+            function animationEndHandler(event) {
+                enable = true;
+            }
+
+            dialog.addEventListener('animationend', animationEndHandler);
+
+            document.addEventListener('click', function (event) {
+                // If the user clicked on the dialog's backdrop, close the dialog
+                if (event.target === dialog && enable) {
+                    dialog.classList.add('closing');
+                    setTimeout(function () {
+                        // 在这里执行点击事件
+                        dialog.close();
+                        dialog.classList.remove('closing');
+                    }, 500);
+                    // overlay.style.display = 'none';
+
+                }
+            });
+
+            /*
+            function handleClick() {
+                console.log('element was clicked');
+            }
+
+            const div = document.getElementById('myDiv');
+            const button = document.getElementById('myButton');
+
+            div.addEventListener('click', handleClick);
+            button.addEventListener('click', handleClick);
+            */
+        </script>
         <!-- 头图缓存 脚本 效果不佳！-->
         <!-- <script type="text/javascript" src="js/storage-image.js" defer></script> -->
 
         <!-- 长按自定义网址 脚本 -->
         <script type="text/javascript" src="js/longpress-custom.js" defer></script>
-
-        <!-- hitokoto 一言 脚本 -->
-        <div id="hitokoto">
-            <script src=" https://v1.hitokoto.cn/?encode=js&select=%23hitokoto&max_length=20" defer></script>
-            <script>hitokoto()</script>
-        </div>
 
         <!-- 有吸附效果的动态线条 脚本-->
         <script type="text/javascript" src="js/animation/spider-web.js" defer></script>
