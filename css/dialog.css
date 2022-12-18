@@ -1,3 +1,16 @@
+@media (prefers-color-scheme: light) {
+    :root {
+        --v-bookmark-container-color: #ffffff;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --v-bookmark-container-color: #232323;
+    }
+}
+/* 合并 CSS 文件可以减少 HTTP 请求的数量，但大小会增大 */
+
 /* 对话框样式 */
 .dialog {
     /* 以下四行实现完全居中 */
@@ -5,7 +18,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-weight:lighter;
     width: 80%;
     border: 0;
     border-radius: 8px;
@@ -19,6 +31,7 @@
     /* linear--匀速, ease--快-慢-快, ease-in--慢-快, ease-out--快-慢, ease-in-out--慢-快-慢 */
     opacity: 1;
     /* 初始状态为不透明 */
+    ba
 }
 
 @keyframes dialog {

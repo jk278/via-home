@@ -107,6 +107,14 @@
             <div class="divide">―·❀·―</div>
         </div>
 
+        <!-- hitokoto 一言 脚本 -->
+        <div id="hitokoto">
+            <script src=" https://v1.hitokoto.cn/?encode=js&select=%23hitokoto&max_length=20" defer></script>
+            <script>hitokoto()</script>
+        </div>
+
+        <script>document.body.classList.add("loaded");</script>
+
         <dialog id="recommend-dialog" class="dialog">
             <div class="dialog-header">
                 <p>推荐</p>
@@ -259,12 +267,6 @@
 
         <!-- 长按自定义网址 脚本 -->
         <script type="text/javascript" src="js/longpress-custom.js" defer></script>
-
-        <!-- hitokoto 一言 脚本 -->
-        <div id="hitokoto">
-            <script src=" https://v1.hitokoto.cn/?encode=js&select=%23hitokoto&max_length=20" defer></script>
-            <script>hitokoto()</script>
-        </div>
 
         <!-- 有吸附效果的动态线条 脚本-->
         <script type="text/javascript" src="js/animation/spider-web.js" defer></script>

@@ -11,19 +11,15 @@
         var t = e("script"),
             o = t.length,
             i = t[o - 1];
-        // 判断暗色模式
-        let color = "";
-        var mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        if (mediaQuery.matches) {
-            color = "255,255,255";
-        } else {
-            color = "0,0,0";
-        }
+        // 就性能而言，获取 :root 样式的方法可能更优，因为它只需执行一次，而 matchMedia 方法可能需要在页面加载时多次调用。
+        let color = getComputedStyle(document.documentElement).getPropertyValue('--spider-color').trim();
+        // getPropertyValue 返回的值包括空格，trim() 函数去除值两侧的空格
+        let newStr = color.slice(4, -1);
         return {
             l: o,
             z: n(i, "zIndex", -1),
             o: n(i, "opacity", .5),
-            c: n(i, "color", color),
+            c: n(i, "color", newStr),
             n: n(i, "count", 99)
         }
     }
