@@ -26,9 +26,9 @@
     background-color: var(--v-bookmark-container-color);
     /* 首页 js 中禁用 0.5s 点击, 避免打断动画 (可优化) */
     animation: dialog 0.3s;
-    transition: opacity 0.4s ease, transform 0.4s;
+    transition: opacity 0.4s, transform 0.4s;
     /* 动画效果：0.5 秒内淡出 */
-    /* linear--匀速, ease--快-慢-快, ease-in--慢-快, ease-out--快-慢, ease-in-out--慢-快-慢 */
+    /* linear--匀速, ease--慢-快-慢 (默认), ease-in--慢-快, ease-out--快-慢, ease-in-out--慢快-慢快 */
     opacity: 1;
     /* 初始状态为不透明 */
 }
@@ -47,7 +47,7 @@
     /* 在关闭时添加 closing 类 */
     opacity: 0;
     /* 关闭时设置为透明 */
-    transform: translate(-50%, -40%) scale(0.75);
+    transform: translate(-50%, -40%) scale(0.8);
 }
 
 /* 对话框头部样式 */
@@ -64,33 +64,9 @@
     margin: 10% auto 0;
 }
 
-/* 对话框底部样式 */
-/* 
-.dialog-footer {
-    border-top: 1px solid #ccc;
-    /* text-align: center;
-}
-*/
-
-/* 遮罩/蒙版样式 */
-/*
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9;
-    display: none;
-}
- */
-
-
 dialog::backdrop {
     background-color: rgb(0, 0, 0);
     opacity: 0.5;
-    transition-duration: 0.2s;
     animation: backdrop 0.5s;
     transition: opacity 0.5s;
 }
@@ -112,7 +88,7 @@ dialog.dialog.closing::backdrop {
 #dialog-box_container {
     text-align: left;
     margin: 0 auto 5%;
-    width: 90% !important;
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
     /* background: rgba(131, 175, 155, 0.4); */
@@ -128,9 +104,9 @@ dialog.dialog.closing::backdrop {
 }
 .dialog-box a {
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     width: 46px;
     height: 100%;
     /* background-color: rgba(0, 255, 255, 0.5); */
@@ -157,29 +133,4 @@ dialog.dialog.closing::backdrop {
     overflow: hidden;
     text-overflow: clip;
     font-size: 10px;
-}
-
-/* 
-#close-button {
-    padding: 16px;
-}
- */
-
-button {
-    /* background-color: blue; */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-/* 
-button:hover {
-    background-color: darkblue;
-}
- */
-button:active {
-    background-color: lightblue;
 }

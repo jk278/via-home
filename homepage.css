@@ -3,6 +3,7 @@
         --v-bookmark-container-color: #ffffff;
         /* spider-web.js 读取处理 rgb 值  */
         --spider-color: rgb(0,0,0);
+        --m-font-color: #030303;
     }
 }
 
@@ -10,6 +11,7 @@
     :root {
         --v-bookmark-container-color: #232323;
         --spider-color: rgb(255,255,255);
+        --m-font-color: #FAFAFA;
     }
 }
 
@@ -63,7 +65,6 @@ body {
     border-radius: 8px;
     /* 阴影效果 */
     box-shadow: 0 0 18px rgba(70, 70, 40, 0.51);
-    transition-duration: 0.2s;
     animation: header 1.5s;
 }
 
@@ -83,7 +84,6 @@ body {
     width: 100%;
     top: 200px;
     /* top 之前加 !important 是因为原来是通过 @media 随屏高变化 */
-    transition: 0.14s;
 }
 /* 
 CSS媒体查询，应用于屏幕高度至少为350像素的屏幕的样式。
@@ -129,19 +129,18 @@ img.smaller {
     backdrop-filter: blur(10px);
     /* 阴影效果 */
     box-shadow: 0 0 18px rgba(70, 70, 40, 0.255);
-    transition-duration: 0.2s;
     animation: search-bar 1s;
 }
 
 /* 搜索框的动画 */
 @keyframes search-bar {
-    0% {
-        max-width: 52px;
-        opacity: 0.1;
+    from {
+        width: 0;
+        opacity: 0;
     }
 
-    100% {
-        max-width: 520px;
+    to {
+        width: 85%;
         opacity: 1;
     }
 }
@@ -246,79 +245,56 @@ span {
     margin: 0 auto 5%;
     /* width 之前加 !important 是因为原来是通过 @media 随屏宽变化 */
     width: 80%;
+    display: flex;
+    flex-wrap: wrap;
     /* background: rgba(131, 175, 155, 0.4); */
 }
 
-.box_layout {
-    /* 每个 div 之间有缩进，占一个空格，压缩时移除 */
-    width: 25%;
-    /* 行内显示 */
-    display: inline-block;
-    text-align: center;
-    /* background: rgba(131, 175, 155, 0.6); */
-}
+/* 每个 div 之间有缩进，占一个空格，压缩时移除 */
 
 .box {
-    width: 46px;
+    flex-basis: 25%;
     margin: 0 auto;
     position: relative;
+    text-align: center;
     /* background: rgba(131, 175, 155, 0.8); */
 }
 
 /* 设置卡片链接 */
 .box a {
-    width: 100%;
-    height: 100%;
     position: absolute;
-    left: 0;
     top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 46px;
+    height: 100%;
+    /* background-color: rgba(0, 255, 255, 0.5); */
 }
 
 /* 文字卡片, 半透明层 */
 .title {
     border-radius: 8px;
-    color: #FAFAFA;
     width: 46px;
     line-height: 46px;
     height: 46px;
+    margin: auto;
     box-shadow: 0 0 18px rgba(70, 70, 40, 0.255);
     backdrop-filter: blur(5px);
     background-color: rgba(255, 255, 255, .100);
-    transition-duration: 0.2s;
-    animation: title 1s;
-}
-
-@keyframes title {
-    0% {
-        scale: 0.1;
-    }
-
-    80% {
-        scale: 1;
-    }
+    animation: opacity 1s;
 }
 
 /* 设置卡片图片 */
 .overlay {
     position: absolute;
-    left: 0;
     top: 0;
-    border-radius: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 46px;
     height: 46px;
-    transition-duration: 0.2s;
-    /* 规定过渡效果何时开始。默认是 0 */
-    animation: overlay 1s;
-}
-
-@keyframes overlay {
-    0% {
-        background-size: 7.5%;
-    }
-
-    80% {
-        background-size: 75%;
-    }
+    /* 规定过渡效果何时开始。默认是 0
+    transition-duration: 0.2s; */
+    animation: opacity 1.5s;
 }
 
 /* 设置卡片的名称 */
@@ -333,8 +309,7 @@ span {
     text-overflow: clip;
     -o-text-overflow: clip;
     font-size: 10px;
-    transition-duration: 0.2s;
-    animation: divide 1s;
+    animation: opacity 1s;
 }
 
 .divide {
@@ -342,7 +317,7 @@ span {
     color: #7C95A2;
     font-size: 20px;
     transition-duration: 0.2s;
-    animation: divide 1s;
+    animation: opacity 1s;
 }
 
 #hitokoto {
@@ -350,16 +325,16 @@ span {
     text-align: center;
     margin-bottom: 5%;
     transition-duration: 0.2s;
-    animation: divide 1s;
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+    animation: opacity 1s;
+    color: var(--m-font-color);
 }
 
-@keyframes divide {
-    0% {
-        opacity: 0.1;
+@keyframes opacity {
+    from {
+        opacity: 0;
     }
 
-    100% {
+    to {
         opacity: 1;
     }
 }

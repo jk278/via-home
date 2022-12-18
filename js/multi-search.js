@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
         (c.style.margin = "8px 0 0 8px"),
         (c.style.setProperty("font-size", "var(--m-font-size)")),
         // 操，要用 backgroundColor
-        (c.style.setProperty("-webkit-tap-highlight-color", "rgba(255, 255, 255, 0.1)")),
+        (c.style.setProperty("color", "var(--m-font-color)")),
         (c.style.outline = "none"),
         (c.style.borderRadius = "8px");
     // 循环 g 中的每一个属性
