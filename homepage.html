@@ -227,7 +227,7 @@
 
             document.addEventListener('click backbutton', function (event) {
                 // If the user clicked on the dialog's backdrop, close the dialog
-                if ( !(event.type == "click" && event.target === dialog) ) {
+                if ( !(event.type == "click" && event.target !== dialog) ) {
                     dialog.classList.remove('open');
                     dialog.style.opacity = '0';
                     setTimeout(function () {
