@@ -96,7 +96,7 @@
                     <!-- 去掉 href 或 加 # 号 -->
                     <a id="custom" title="自定义"></a>
                 </div>
-                
+
             </div>
             <div class="divide">―·❀·―</div>
         </div>
@@ -216,23 +216,23 @@
             element.addEventListener('click', clickHandler);
              */
 
-             /*
-            function animationEndHandler(event) {
-                enable = true;
-                alert("弹窗完成");
-            }
+            /*
+           function animationEndHandler(event) {
+               enable = true;
+               alert("弹窗完成");
+           }
 
-            dialog.addEventListener('animationend', animationEndHandler);
-            */
+           dialog.addEventListener('animationend', animationEndHandler);
+           */
 
             function closeDialog() {
-                    dialog.classList.remove('open');
-                    dialog.style.opacity = '0';
-                    setTimeout(function () {
-                        // 在这里执行点击事件
-                        dialog.close();
-                    }, 500);
-                    // overlay.style.display = 'none';
+                dialog.classList.remove('open');
+                dialog.style.opacity = '0';
+                setTimeout(function () {
+                    // 在这里执行点击事件
+                    dialog.close();
+                }, 500);
+                // overlay.style.display = 'none';
             }
 
             document.addEventListener('click', function (event) {
@@ -242,10 +242,13 @@
                 }
             });
 
-            document.addEventListener('backbutton', function () {
-                // If the user clicked on the dialog's backdrop, close the dialog
-                closeDialog();
-            });
+            if (dialog.open) {
+                window.onpopstate = function (event) {
+                    closeDialog();
+                };
+                // history.pushState({}, '', '/new-url');
+            }
+
 
             /*
             function handleClick() {
