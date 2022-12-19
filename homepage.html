@@ -242,14 +242,21 @@
                 }
             });
 
+            /*
             if (dialog.open) {
+                // 会在浏览器的历史记录发生变化时触发
                 window.onpopstate = function (event) {
-                    // 防止网页关闭，阻止浏览器的默认行为
-                    event.preventDefault();
+                    // 阻止浏览器的默认行为，但并不能阻止用户关闭网页
+                    // event.preventDefault();
                     closeDialog();
                 };
                 // history.pushState({}, '', '/new-url');
             }
+             */
+
+            window.addEventListener('beforeunload', function (event) {
+                event.returnValue = '确定要离开吗？';
+            });
 
 
             /*
