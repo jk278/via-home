@@ -197,7 +197,7 @@
                 setTimeout(function () {
                     // 在这里执行点击事件
                     dialog.showModal();
-                    // 最后再试试更改历史记录吧
+                    // 最后再试试更改历史记录吧，返回不直接关网页了，但弹窗不关闭，配合另一个试试
                     history.pushState({}, '', '/dialog');
                     dialog.style.opacity = '1';
                     dialog.classList.add('open');
@@ -245,16 +245,14 @@
                 }
             });
 
-            /*
-            if (dialog.open) {
-                // 会在浏览器的历史记录发生变化时触发
-                window.onpopstate = function (event) {
-                    // 阻止浏览器的默认行为，但并不能阻止用户关闭网页
-                    // event.preventDefault();
-                    closeDialog();
-                };
-            }
-             */
+            
+            // 会在浏览器的历史记录发生变化时触发
+            window.onpopstate = function (event) {
+                // 阻止浏览器的默认行为，但并不能阻止用户关闭网页
+                // event.preventDefault();
+                if (dialog.open) closeDialog();
+            };
+             
 
             /*
             function handleClick() {
