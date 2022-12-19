@@ -241,14 +241,12 @@
             document.addEventListener('click', function (event) {
                 // If the user clicked on the dialog's backdrop, close the dialog
                 if (event.target === dialog) {
-                    closeDialog();
                     history.back();
                 }
             });
 
             // 会在浏览器的历史记录发生变化时触发
             window.onpopstate = function (event) {
-                alert("");
                 // 阻止浏览器的默认行为，但并不能阻止用户关闭网页
                 // event.preventDefault();
                 if (dialog.open) closeDialog();
