@@ -244,6 +244,8 @@
 
             if (dialog.open) {
                 window.onpopstate = function (event) {
+                    // 防止网页关闭，阻止浏览器的默认行为
+                    event.preventDefault();
                     closeDialog();
                 };
                 // history.pushState({}, '', '/new-url');
