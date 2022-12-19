@@ -24,7 +24,7 @@
     /* 水平偏移，垂直偏移，模糊距离，阴影颜色，添加多个阴影，可以使用逗号分隔 */
     box-shadow: 0 0 3px #808080;
     background-color: var(--v-bookmark-container-color);
-    /* 首页 js 中禁用 0.3s 点击, 避免打断动画 (可优化), 动画调好以后，打断也没有任何问题了 */
+    /* 动画调好以后，打断也不会显得卡顿了，但关闭延时应与动画相等 */
     transition: opacity 0.3s, transform 0.3s;
     /* linear--匀速, ease--慢-快-慢 (默认), ease-in--慢-快, ease-out--快-慢, ease-in-out--慢快-慢快 */
     opacity: 0;

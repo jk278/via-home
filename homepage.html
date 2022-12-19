@@ -197,6 +197,8 @@
                 setTimeout(function () {
                     // 在这里执行点击事件
                     dialog.showModal();
+                    // 最后再试试更改历史记录吧
+                    history.pushState({}, '', '/dialog');
                     dialog.style.opacity = '1';
                     dialog.classList.add('open');
                 }, 50);
@@ -228,10 +230,11 @@
             function closeDialog() {
                 dialog.classList.remove('open');
                 dialog.style.opacity = '0';
+                // 关闭延时比动画长，所以点击不能马上生效
                 setTimeout(function () {
                     // 在这里执行点击事件
                     dialog.close();
-                }, 500);
+                }, 300);
                 // overlay.style.display = 'none';
             }
 
@@ -250,14 +253,8 @@
                     // event.preventDefault();
                     closeDialog();
                 };
-                // history.pushState({}, '', '/new-url');
             }
              */
-
-            window.addEventListener('beforeunload', function (event) {
-                event.returnValue = '确定要离开吗？';
-            });
-
 
             /*
             function handleClick() {
