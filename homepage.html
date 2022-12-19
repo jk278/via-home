@@ -241,7 +241,8 @@
             document.addEventListener('click', function (event) {
                 // If the user clicked on the dialog's backdrop, close the dialog
                 if (event.target === dialog) {
-                    history.go(-1);
+                    history.back();
+                    // 点击和返回一模一样，说明返回键就是 history.back()
                 }
             });
 
