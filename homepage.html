@@ -241,7 +241,7 @@
             document.addEventListener('click', function (event) {
                 // If the user clicked on the dialog's backdrop, close the dialog
                 if (event.target === dialog) {
-                    history.back();
+                    history.go(-1);
                 }
             });
 
