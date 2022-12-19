@@ -225,9 +225,7 @@
             dialog.addEventListener('animationend', animationEndHandler);
             */
 
-            document.addEventListener('click backbutton', function (event) {
-                // If the user clicked on the dialog's backdrop, close the dialog
-                if ( !(event.type == "click" && event.target !== dialog) ) {
+            function closeDialog() {
                     dialog.classList.remove('open');
                     dialog.style.opacity = '0';
                     setTimeout(function () {
@@ -235,7 +233,18 @@
                         dialog.close();
                     }, 500);
                     // overlay.style.display = 'none';
+            }
+
+            document.addEventListener('click', function (event) {
+                // If the user clicked on the dialog's backdrop, close the dialog
+                if (event.target === dialog) {
+                    closeDialog();
                 }
+            });
+
+            document.addEventListener('backbutton', function () {
+                // If the user clicked on the dialog's backdrop, close the dialog
+                closeDialog();
             });
 
             /*
