@@ -125,7 +125,7 @@ img.smaller {
     width: 85%;
     margin: 10% auto;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.1);
     /* 模糊效果 */
     backdrop-filter: blur(10px);
     /* 阴影效果 */
