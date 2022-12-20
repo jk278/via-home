@@ -287,7 +287,7 @@
 
 
         <!-- 检测键盘 脚本 获取窗口大小，安卓苹果不同-->
-        <!--script>
+        <script>
             var originalHeight =
         document.documentElement.clientHeight || document.body.clientHeight;
             window.onresize = function() {
@@ -296,12 +296,12 @@
             document.documentElement.clientHeight || document.body.clientHeight;
             if (resizeHeight - 0 < originalHeight - 0) {
                 //当软键盘弹起，在此处操作
-              
+                document.body.style.overflow = 'hidden';
             } else {
                 //当软键盘收起，在此处操作
-
+                document.body.style.overflow = 'autp';
             };}
-        </script-->
+        </script>
 
         <!-- 处理搜索状态 默认脚本 -->
         <script type="text/javascript" src="js/search-process.js"></script>
