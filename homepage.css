@@ -8,7 +8,7 @@
 
 html {
     /* 继承到 a 标签，就成了默认点击动画的颜色 */
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
 }
 }
 
@@ -19,7 +19,7 @@ html {
         --m-font-color: #FAFAFA;
     }
 html {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
 }
 }
 
