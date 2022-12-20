@@ -278,8 +278,11 @@ span {
     transform: translateX(-50%);
     width: 46px;
     height: 100%;
-    border-radius: 8px;
     /* background-color: rgba(0, 255, 255, 0.5); */
+}
+
+.box a:active {
+    border-radius: 8px;
 }
 
 /* 文字卡片, 半透明层 */
