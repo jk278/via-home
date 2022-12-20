@@ -15,6 +15,10 @@
     }
 }
 
+#statusbar {
+  filter: brightness(50%);
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -35,7 +39,6 @@ body {
     width: 600px;
     margin: auto;
     text-align: center;
-filter: brightness(50%);
 }
 
 #gesture-indicator {
