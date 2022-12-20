@@ -3,7 +3,7 @@
         --v-bookmark-container-color: #ffffff;
         /* spider-web.js 读取处理 rgb 值  */
         --spider-color: rgb(0, 0, 0);
-        --m-font-color: #030303;
+        --m-font-color: #070707;
     }
 
     html {
@@ -16,7 +16,7 @@
     :root {
         --v-bookmark-container-color: #232323;
         --spider-color: rgb(255, 255, 255);
-        --m-font-color: #FAFAFA;
+        --m-font-color: #f8f8f8;
     }
 
     html {
