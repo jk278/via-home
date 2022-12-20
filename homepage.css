@@ -355,3 +355,30 @@ span {
         opacity: 1;
     }
 }
+
+/* 使用媒体查询来适应不同的屏幕尺寸，以便在页面高度发生变化时保持布局稳定 */
+@media only screen and (min-height:250px) {
+    #content {
+        top: 62px
+    }
+}
+@media only screen and (min-height:350px) {
+    #content {
+        top: 87px
+    }
+}
+@media only screen and (min-height:450px) {
+    #content {
+        top: 135px
+    }
+}
+@media only screen and (min-height:650px) {
+    #content {
+        top: 195px
+    }
+}
+@media only screen and (min-height:850px) {
+    #content {
+        top: 255px
+    }
+}
