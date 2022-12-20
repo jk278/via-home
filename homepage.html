@@ -284,23 +284,22 @@
         <!-- 网页鼠标点击特效 -->
         <!-- <script type="text/javascript" src="js/animation/click-word.js"></script> -->
 
-
-
         <!-- 检测键盘 脚本 获取窗口大小，安卓苹果不同-->
         <script>
             var originalHeight =
-        document.documentElement.clientHeight || document.body.clientHeight;
-            window.onresize = function() {
-            //键盘弹起与隐藏都会引起窗口的高度发生变化
-            var resizeHeight =
-            document.documentElement.clientHeight || document.body.clientHeight;
-            if (resizeHeight - 0 < originalHeight - 0) {
-                //当软键盘弹起，在此处操作
-                document.body.style.overflow = 'hidden';
-            } else {
-                //当软键盘收起，在此处操作
-                document.body.style.overflow = 'autp';
-            };}
+                document.documentElement.clientHeight || document.body.clientHeight;
+            window.onresize = function () {
+                //键盘弹起与隐藏都会引起窗口的高度发生变化
+                var resizeHeight =
+                    document.documentElement.clientHeight || document.body.clientHeight;
+                if (resizeHeight - 0 < originalHeight - 0) {
+                    //当软键盘弹起，在此处操作
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    //当软键盘收起，在此处操作
+                    document.body.style.overflow = 'auto';
+                }
+            };
         </script>
 
         <!-- 处理搜索状态 默认脚本 -->
