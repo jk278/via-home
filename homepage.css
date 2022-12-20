@@ -138,7 +138,7 @@ img.smaller {
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.1);
     /* 模糊效果 */
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     /* 阴影效果 */
     box-shadow: 0 0 18px rgba(70, 70, 40, 0.255);
     animation: search-bar 1s;
@@ -291,7 +291,7 @@ span {
     height: 46px;
     margin: auto;
     box-shadow: 0 0 18px rgba(70, 70, 40, 0.255);
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(5px);
     background-color: rgba(255, 255, 255, .100);
     animation: opacity 1s;
 }
