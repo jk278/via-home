@@ -5,7 +5,7 @@
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <meta name="color-scheme" content="light dark">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
-    <title>...</title>
+    <title>主页</title>
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="dialog.css">
     <style>
@@ -15,7 +15,21 @@
 
 <body>
     <div class='frosted-glass' id='gesture-indicator'></div>
-    <div class="header-layout"><img id="header" src="bg/wildness-compress.jpg"></div>
+
+    <div id="yiju"></div>
+    <!-- 一句 脚本 -->
+    <script type="text/javascript" src=" http://yijuzhan.com/api/word.php?m=js"></script>
+    <script type="text/javascript">
+        var withSource = false;
+        var yiju = document.getElementById("yiju");
+        if (withSource) {
+            yiju.innerHTML = str[0] + str[1];
+        } else {
+            yiju.innerHTML = str[0];
+        }
+    </script>
+
+    <img id="header" src="bg/wildness-compress.jpg">
 
     <div id="content">
         <div class="search_part">
@@ -24,18 +38,6 @@
                     src="logo/spiral.svg" />
                 <link rel="stylesheet" href="logo/spiral.scss">
             </a>
-
-            <!-- 一句 脚本 -->
-            <script type="text/javascript" src=" http://yijuzhan.com/api/word.php?m=js"></script>
-            <script type="text/javascript">
-                var s = false;
-                var t = document.getElementsByTagName("title")[0];
-                if (s) {
-                    t.innerHTML = str[0] + str[1];
-                } else {
-                    t.innerHTML = str[0];
-                }
-            </script>
 
             <!-- 切换搜索引擎 脚本 -->
             <script type="text/javascript" src="js/multi-search.js"></script>
@@ -102,11 +104,11 @@
         </div>
 
         <!-- hitokoto 一言 脚本 -->
-        <div id="hitokoto">
+        <!-- <div id="hitokoto">
             <script src=" https://v1.hitokoto.cn/?encode=js&select=%23hitokoto&max_length=20" defer></script>
             <script>hitokoto();</script>
-            <!-- 为了方便后续压缩，这里应该严格写分号 -->
-        </div>
+            <-- 为了方便后续压缩，这里应该严格写分号 ->
+        </div> -->
 
         <dialog id="recommend-dialog" class="dialog">
             <div class="dialog-header">

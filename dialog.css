@@ -19,6 +19,7 @@
     left: 50%;
     transform: translate(-50%, -40%) scale(0.8);
     width: 80%;
+    width: 600px;
     border: 0;
     border-radius: 8px;
     /* 水平偏移，垂直偏移，模糊距离，阴影颜色，添加多个阴影，可以使用逗号分隔 */
