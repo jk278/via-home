@@ -44,7 +44,7 @@
 }
 
 .dialog.open::backdrop {
-    opacity: 0.5;
+    opacity: 0.4;
 }
 
 /* 对话框头部样式 */

@@ -2,25 +2,26 @@
     :root {
         --v-bookmark-container-color: #ffffff;
         /* spider-web.js 读取处理 rgb 值  */
-        --spider-color: rgb(0,0,0);
+        --spider-color: rgb(0, 0, 0);
         --m-font-color: #030303;
     }
 
-html {
-    /* 继承到 a 标签，就成了默认点击动画的颜色 */
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
-}
+    html {
+        /* 继承到 a 标签，就成了默认点击动画的颜色 */
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    }
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --v-bookmark-container-color: #232323;
-        --spider-color: rgb(255,255,255);
+        --spider-color: rgb(255, 255, 255);
         --m-font-color: #FAFAFA;
     }
-html {
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
-}
+
+    html {
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+    }
 }
 
 * {
@@ -95,6 +96,7 @@ body {
     top: 200px;
     /* top 之前加 !important 是因为原来是通过 @media 随屏高变化 */
 }
+
 /* 
 CSS媒体查询，应用于屏幕高度至少为350像素的屏幕的样式。
 @media only screen and (min-height:250px) {
@@ -279,11 +281,6 @@ span {
     width: 46px;
     height: 100%;
     /* background-color: rgba(0, 255, 255, 0.5); */
-}
-
-.box a:active {
-    border-radius: 8px;
-    background-color: rgba(0, 255, 255, 0.5);
 }
 
 /* 文字卡片, 半透明层 */
