@@ -15,20 +15,6 @@
 
 <body>
     <div class='frosted-glass' id='gesture-indicator'></div>
-
-    <div id="yiju"></div>
-    <!-- 一句 脚本 -->
-    <script type="text/javascript" src=" http://yijuzhan.com/api/word.php?m=js"></script>
-    <script type="text/javascript">
-        var withSource = false;
-        var yiju = document.getElementById("yiju");
-        if (withSource) {
-            yiju.innerHTML = str[0] + str[1];
-        } else {
-            yiju.innerHTML = str[0];
-        }
-    </script>
-
     <img id="header" src="bg/wildness-compress.jpg">
 
     <div id="content">
@@ -102,6 +88,19 @@
             </div>
             <div class="divide">―·❀·―</div>
         </div>
+
+        <div id="yiju"></div>
+        <!-- 一句 脚本 -->
+        <script type="text/javascript" src=" http://yijuzhan.com/api/word.php?m=js"></script>
+        <script type="text/javascript">
+            var withSource = false;
+            var yiju = document.getElementById("yiju");
+            if (withSource) {
+                yiju.innerHTML = str[0] + str[1];
+            } else {
+                yiju.innerHTML = str[0];
+            }
+        </script>
 
         <!-- hitokoto 一言 脚本 -->
         <!-- <div id="hitokoto">
