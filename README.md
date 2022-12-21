@@ -9,7 +9,7 @@
 file:///storage/emulated/0/Android/data/mark.via/你的命名/homepage.html
 
 国内在线网址：<br/>
-https://jk278.netlify.app/homepage.html
+https://jk278.netlify.app/
 
 国外在线网址：<br/>
-https://jk278.github.io/via-home/homepage.html
+https://jk278.github.io/via-home/
