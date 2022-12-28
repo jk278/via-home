@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Bookmarks</title>
+</head>
+<body>
+    <h1>My Bookmarks</h1>
+    <div id="bookmarks"></div>
+    <input type="text" id="bookmarkName" placeholder="Type bookmark name">
+    <input type="text" id="bookmarkUrl" placeholder="Type bookmark url">
+    <input type="button" value="Add Bookmark" id="addBookmark">
+    <script src="bookmarks.js"></script>
+</body>
+</html>
+```
+
+JavaScript:
+```javascript
+// Get bookmarks from local storage
+let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+
+// If no bookmarks in local storage, set to empty array
+if (bookmarks == null) {
+    bookmarks = [];
+}
+
+// Get form elements
+let bookmarkName = document.getElementById("bookmarkName");
+let bookmarkUrl = document.getElementById("bookmarkUrl");
+let addBookmark = document.getElementById("addBookmark");
+
+// Add event listener to add bookmark button
+addBookmark.addEventListener("click", function () {
+    let bookmark = {
+        name: bookmarkName.value,
+        url: bookmarkUrl.value
+    };
+
+    // Add to bookmarks array
+    bookmarks.push(bookmark);
+
+    // Set bookmarks in local storage
+    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+
+    // Re-fetch bookmarks
+    fetchBookmarks();
+});
+
+// Fetch bookmarks
+function fetchBookmarks() {
+    let bookmarksResults = document.getElementById("bookmarks");
+
+    // Build output
+    bookmarksResults.innerHTML = "";
+    for (let i = 0; i < bookmarks.length; i++) {
+        let name = bookmarks[i].name;
+        let url = bookmarks[i].url;
+
+        bookmarksResults.innerHTML += '<div class="bookmark">' +
+            '<h3>' + name +
+            ' <a class="visit" target="_blank" href="' + url + '">Visit</a>' +
+            ' <a class="delete" href="#">Delete</a>' +
+            '</h3>' +
+            '</div>';
+    }
+}
+
+// Event listener for delete
+bookmarksResults.addEventListener("click", function (e) {
+    if (e.target.classList.contains("delete")) {
+        let bookmarkIndex = e.target.parentElement.parentElement.getAttribute("data-index");
+
+        // Remove from array
+        bookmarks.splice(bookmarkIndex, 1);
+
+        // Re-set back to local storage
+        localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+
+        // Re-fetch bookmarks
+        fetchBookmarks();
+    }
+});
