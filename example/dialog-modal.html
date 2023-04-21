@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dialog with Overlay</title>
+  <style>
+    /* Style the dialog and the overlay */
+    .dialog {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      background-color: white;
+      border: 1px solid #ccc;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      z-index: 10;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 9;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- This button will open the dialog -->
+  <button id="open-button">Open Dialog</button>
+
+  <!-- This is the dialog element -->
+  <dialog id="my-dialog" class="dialog">
+    <h1>Dialog Title</h1>
+    <p>Dialog content goes here</p>
+    <button id="close-button">Close</button>
+  </dialog>
+
+  <!-- This is the overlay element -->
+  <div id="overlay" class="overlay"></div>
+
+  <!-- This script opens and closes the dialog and shows/hides the overlay -->
+  <script>
+    const openButton = document.getElementById('open-button');
+    const closeButton = document.getElementById('close-button');
+    const dialog = document.getElementById('my-dialog');
+    const overlay = document.getElementById('overlay');
+
+    openButton.addEventListener('click', () => {
+      dialog.showModal();
+      overlay.style.display = 'block';
+    });
+
+    closeButton.addEventListener('click', () => {
+      dialog.close();
+      overlay.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
