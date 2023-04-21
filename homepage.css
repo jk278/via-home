@@ -1,0 +1,363 @@
+@media (prefers-color-scheme: light) {
+    :root {
+        --v-bookmark-container-color: #ffffff;
+        /* spider-web.js 读取处理 rgb 值  */
+        --spider-color: rgb(0, 0, 0);
+        --m-font-color: #070707;
+    }
+
+    html {
+        /* 继承到 a 标签，就成了默认点击动画的颜色 */
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --v-bookmark-container-color: #232323;
+        --spider-color: rgb(255, 255, 255);
+        --m-font-color: #f8f8f8;
+    }
+
+    html {
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+        background-color: #191919;
+    }
+
+    img.smaller {
+        /* 针对 webkit 内核和 W3C 规范，降低亮度 */
+        -webkit-filter: brightness(75%);
+        filter: brightness(75%);
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    --m-font-size: 14px;
+}
+
+html {
+    height: 100%;
+    /* 继承到 a 标签，就成了默认点击动画的颜色 */
+    /* -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1); */
+    /* 元素获得焦点时呈现的虚线颜色 */
+    -webkit-focus-ring-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    min-height: 100%;
+    max-width: 100%;
+    width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+#gesture-indicator {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow: hidden;
+    word-break: break-all
+}
+
+.header-layout {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 36.5%;
+}
+
+#header {
+    width: 90%;
+    margin: 20px auto;
+    height: 220px;
+    object-fit: cover;
+    object-position: top;
+    pointer-events: none;
+    border-radius: 8px;
+    /* 阴影效果 */
+    box-shadow: 0 0 18px rgba(70, 70, 40, 0.51);
+    animation: header 1.5s;
+}
+
+@keyframes header {
+    from {
+        transform: translateY(-500px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+#content {
+    position: absolute;
+    max-width: 600px;
+    width: 100%;
+    top: 204px;
+    /* top 之前加 !important 是因为原来是通过 @media 随屏高变化 */
+}
+
+/* 
+CSS媒体查询，应用于屏幕高度至少为350像素的屏幕的样式。
+@media only screen and (min-height:250px) {
+    #content {
+        top: 62px
+    }
+}
+@media only screen and (min-width:128px) {
+    #box_container {
+        width: 64px
+    }
+} */
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow: auto;
+    text-decoration: none;
+    color: #FAFAFA;
+}
+
+img.smaller {
+    height: 72px;
+    border-radius: 0;
+    object-fit: cover;
+}
+
+.search_part {
+    margin-bottom: 0;
+}
+
+.search_bar {
+    display: table;
+    vertical-align: middle;
+    width: 85%;
+    margin: 15% auto;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    /* 模糊效果 */
+    backdrop-filter: blur(10px);
+    /* 阴影效果 */
+    box-shadow: 0 0 18px rgba(70, 70, 40, 0.255);
+    animation: search-bar 1s;
+}
+
+/* 搜索框的动画 */
+@keyframes search-bar {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 85%;
+        opacity: 1;
+    }
+}
+
+/* 放大镜底层 */
+#search_submit {
+    /* 有这一句，默认才不会显示，否则加载初会出现在搜索框下一行 */
+    display: none;
+    outline: none;
+    height: 46px;
+    width: 39px;
+    /* 悬浮在右侧 */
+    float: right;
+    font-size: 15px;
+    font-weight: bold;
+    /* 取消 border，变窄了一点 */
+    border: none;
+    background-color: transparent;
+    /* 增加左右间距 */
+    padding: 0 10px;
+    /* html 更新，使 button 的默认 margin-top 变成了 15px */
+    margin-top: 0;
+}
+
+.search.icon {
+    width: 12px;
+    height: 12px;
+    border: solid 2px currentColor;
+    border-radius: 100%;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    /* 逆时针旋转45度 */
+    text-align: center;
+    margin: auto;
+}
+
+.search.icon:before {
+    content: '';
+    position: absolute;
+    /* 关键 */
+    top: 10px;
+    left: 3px;
+    height: 5px;
+    width: 2px;
+    background-color: currentColor;
+}
+
+/* input */
+span {
+    display: block;
+    overflow: hidden;
+}
+
+#search_input {
+    height: 46px;
+    padding: 0 12px;
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    background-color: transparent;
+}
+
+/* 用于设置搜索时的词条联想框 */
+.bdSug_wpr {
+    overflow-y: scroll !important;
+    max-height: 30% !important;
+    backdrop-filter: blur(10px);
+    border: 0 solid !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 0 0 15px 15px;
+    border-top: 13px solid transparent !important;
+    transform: translate(-21.45%, 0%);
+    width: 80% !important;
+}
+
+/* 搜索词条联想框列表 */
+.bdSug_wpr table {
+    background: none !important;
+}
+
+.bdSug_wpr td {
+    margin: 4px !important;
+    padding: 10px !important;
+    color: #FAFAFA;
+    background: none;
+}
+
+.bdSug_sd {
+    height: 0px !important;
+}
+
+.bdSug_app {
+    display: none !important;
+}
+
+/* 书签部分 */
+#bookmark_part {
+    max-width: 600px;
+    margin: 20% auto 10%;
+    padding: 0;
+    /* background: rgba(131, 175, 155, 0.2) */
+}
+
+/* 收纳所有收藏卡片的容器 */
+#box_container {
+    text-align: left;
+    margin: 10% auto ;
+    /* width 之前加 !important 是因为原来是通过 @media 随屏宽变化 */
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    /* background: rgba(131, 175, 155, 0.4); */
+}
+
+/* 每个 div 之间有缩进，占一个空格，压缩时移除 */
+
+.box {
+    flex-basis: 25%;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    /* background: rgba(131, 175, 155, 0.8); */
+}
+
+/* 设置卡片链接 */
+.box a {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 46px;
+    height: 100%;
+    /* background-color: rgba(0, 255, 255, 0.5); */
+}
+
+/* 文字卡片, 半透明层 */
+.title {
+    border-radius: 8px;
+    width: 46px;
+    line-height: 46px;
+    height: 46px;
+    margin: auto;
+    box-shadow: 0 0 18px rgba(70, 70, 40, 0.255);
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.1);
+    animation: opacity 1s;
+}
+
+/* 设置卡片图片 */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 46px;
+    height: 46px;
+    /* 规定过渡效果何时开始。默认是 0
+    transition-duration: 0.2s; */
+    animation: opacity 1.5s;
+}
+
+/* 设置卡片的名称 */
+.url {
+    margin: 2px auto;
+    width: 46px;
+    height: 20px;
+    line-height: 20px;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: clip;
+    -o-text-overflow: clip;
+    font-size: 10px;
+    animation: opacity 1s;
+}
+
+.divide {
+    text-align: center;
+    color: #7C95A2;
+    font-size: 20px;
+    animation: opacity 1s;
+}
+
+#yiju {
+    text-align: center;
+    margin: 25px auto;
+    color: var(--m-font-color);
+    font-size: var(--m-font-size);
+    animation: opacity 1s;
+}
+
+@keyframes opacity {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

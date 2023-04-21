@@ -1,0 +1,132 @@
+@media (prefers-color-scheme: light) {
+    :root {
+        --v-bookmark-container-color: #ffffff;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --v-bookmark-container-color: #232323;
+    }
+}
+/* 合并 CSS 文件可以减少 HTTP 请求的数量，但大小会增大 */
+
+/* 对话框样式 */
+.dialog {
+    /* 以下四行实现完全居中 */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%) scale(0.8);
+    width: 80%;
+    width: 600px;
+    border: 0;
+    border-radius: 8px;
+    /* 水平偏移，垂直偏移，模糊距离，阴影颜色，添加多个阴影，可以使用逗号分隔 */
+    box-shadow: 0 0 3px #808080;
+    background-color: var(--v-bookmark-container-color);
+    /* 动画调好以后，打断也不会显得卡顿了，但关闭延时应与动画相等 */
+    transition: opacity 0.3s, transform 0.3s;
+    /* linear--匀速, ease--慢-快-慢 (默认), ease-in--慢-快, ease-out--快-慢, ease-in-out--慢快-慢快 */
+    opacity: 0;
+    /* 初始状态为不透明 */
+}
+
+.dialog.open {
+    /* 在打开时添加 open 类 */
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.dialog::backdrop {
+    background-color: rgb(0, 0, 0);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.dialog.open::backdrop {
+    opacity: 0.3;
+}
+
+/* 对话框头部样式 */
+.dialog-header {
+    padding: 15px;
+    /* 模糊线条效果 */
+    box-shadow: 0 -1px 5px -1px #808080;
+    /* background-color: #f8f8f8; */
+}
+
+/* 对话框内容样式 */
+.dialog-content {
+    padding: 15px;
+    margin: 10% auto 0;
+}
+
+.add-dialog-content {
+    padding: 15px;
+    margin: 0 auto 0;
+}
+
+.dialog-box_container {
+    /* text-align: left; */
+    margin: 0 auto 5%;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: flex-start; 默认就是居左的 */
+    /* background: rgba(131, 175, 155, 0.4); */
+}
+
+.dialog-box {
+    /* 每个 div 之间有缩进，占一个空格 */
+    flex-basis: 25%;
+    text-align: center;
+    /* margin: 0 auto 6%; flex 还左右自动边距，就会居中 */
+    margin-bottom: 6%;
+    position: relative;
+    /* background: rgba(131, 175, 155, 0.6); */
+}
+.dialog-box a {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 46px;
+    height: 68px;
+    /* background-color: rgba(0, 255, 255, 0.5); */
+}
+
+.dialog-title {
+    border-radius: 8px;
+    width: 46px;
+    line-height: 46px;
+    height: 46px;
+    margin: auto;
+    box-shadow: 0 0 18px rgba(70, 70, 40, 0.255);
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, .100);
+}
+
+.dialog-url {
+    margin: 2px auto;
+    width: 48px;
+    height: 20px;
+    line-height: 20px;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: clip;
+    font-size: 10px;
+}
+
+/* 对话框底部样式 */
+.dialog-footer {
+    padding: 15px;
+    /* 模糊线条效果 */
+    box-shadow: 0 -1px 2px -1px #808080;
+    /* background-color: #f8f8f8; */
+}
+
+button {
+    margin-top: 15px;
+}

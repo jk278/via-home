@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="color-scheme" content="light dark">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+    <title>主页</title>
+    <link rel="shortcut icon" type="image/svg+xml" href="favicon/home.svg">
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="dialog.css">
+    <style>
+    </style>
+
+</head>
+
+<body>
+    <div class='frosted-glass' id='gesture-indicator'></div>
+    <img id="header" src="bg/wildness-compress.jpg">
+
+    <div id="content">
+        <div class="search_part">
+            <!-- 多种 logo 可选-->
+            <a class="logo" href="v://bookmark" onclick="" title="书签"><img id="logo" class="smaller"
+                    src="logo/spiral.svg" />
+                <link rel="stylesheet" href="logo/spiral.scss">
+            </a>
+
+            <!-- 切换搜索引擎 脚本 -->
+            <script type="text/javascript" src="js/multi-search.js"></script>
+            <!-- 搜索框 -->
+            <form onsubmit="return search()" class="search_bar" title="搜索">
+                <button onclick="search()" id="search_submit" value="" aria-label="搜索">
+                    <div class="search icon"></div>
+                </button>
+                <span><input class="search" onfocus="showButton()" onblur="hideButton()" type="text" value=""
+                        autocomplete="off" id="search_input" title="搜索"></span>
+            </form>
+        </div>
+
+        <!-- 输入框随机展示精选句子 -->
+        <script type="text/javascript" src="js/random-sentence.js"></script>
+
+        <!-- 注意：引入 html 后主页面的 css 样式不适用于被引入页面。只在本页面生效，引入文件整体适用，但引入文件内容不适用。 js 写入不一样。-->
+        <!-- 书签 html 转 js 太麻烦了！-->
+        <div id="bookmark_part">
+            <div id="box_container">
+
+                <div class="box">
+                    <p class="title" aria-hidden="true"></p>
+                    <div class="overlay"
+                        style="background: url('icon/sparkk/star.svg') no-repeat;background-size: 75%;background-position:center center;">
+                    </div>
+                    <p class="url" aria-hidden="true">书签</p>
+                    <a href="folder://" onclick="" title="书签"></a>
+                </div>
+
+                <div class="box">
+                    <p class="title" aria-hidden="true"></p>
+                    <div class="overlay"
+                        style="background: url('icon/sparkk/align-left.svg') no-repeat;background-size: 75%;background-position:center center;">
+                    </div>
+                    <p class="url" aria-hidden="true">历史</p>
+                    <a href="history://" onclick="" title="历史"></a>
+                </div>
+
+                <div class="box">
+                    <p class="title" aria-hidden="true"></p>
+                    <div class="overlay"
+                        style="background: url('icon/sparkk/grid.svg') no-repeat;background-size: 75%;background-position:center center;">
+                    </div>
+                    <p class="url" aria-hidden="true">推荐</p>
+                    <!-- 注意 a 标签的 href 属性如果为空，点击会刷新 -->
+                    <!-- showModal() 改成 show(), 则可以与页面的其他元素进行交互-->
+                    <a href="" id="open-button" title="推荐"></a>
+                </div>
+
+                <div class="box">
+                    <p class="title" aria-hidden="true"></p>
+                    <div class="overlay"
+                        style="background: url('icon/sparkk/menu.svg') no-repeat;background-size: 75%;background-position:center center;">
+                    </div>
+                    <p id="custom-text" class="url" aria-hidden="true">我的</p>
+                    <!-- 去掉 href 或 加 # 号 -->
+                    <a id="mine-button" title="我的"></a>
+                </div>
+
+            </div>
+            <div class="divide">―·❀·―</div>
+        </div>
+
+        <div id="yiju"></div>
+        <!-- 一句 脚本 -->
+        <script type="text/javascript" src=" http://yijuzhan.com/api/word.php?m=js"></script>
+        <script type="text/javascript">
+            var withSource = false;
+            var yiju = document.getElementById("yiju");
+            if (withSource) {
+                yiju.innerHTML = str[0] + str[1];
+            } else {
+                yiju.innerHTML = str[0];
+            }
+        </script>
+
+        <!-- hitokoto 一言 脚本 -->
+        <!-- <div id="hitokoto">
+            <script src=" https://v1.hitokoto.cn/?encode=js&select=%23hitokoto&max_length=20" defer></script>
+            <script>hitokoto();</script>
+            <-- 为了方便后续压缩，这里应该严格写分号 ->
+        </div> -->
+
+        <dialog id="recommend-dialog" class="dialog">
+            <div class="dialog-header">
+                <p>推荐</p>
+            </div>
+            <div class="dialog-content">
+                <div class="dialog-box_container">
+
+                    <div class="dialog-box">
+                        <p class="dialog-title" aria-hidden="true">I</p>
+                        <div class="overlay"></div>
+                        <p class="dialog-url" aria-hidden="true">Infinity</p>
+                        <a href="https://m.inftab.com/#/" onclick="" title="Infinity"></a>
+                    </div>
+
+                    <div class="dialog-box">
+                        <p class="dialog-title" aria-hidden="true">Y</p>
+                        <div class="overlay"></div>
+                        <p class="dialog-url" aria-hidden="true">Youtube</p>
+                        <a href="https://m.youtube.com/" onclick="" title="Youtube"></a>
+                    </div>
+
+                    <div class="dialog-box">
+                        <p class="dialog-title" aria-hidden="true">影</p>
+                        <div class="overlay"></div>
+                        <p class="dialog-url" aria-hidden="true">土拨鼠电影</p>
+                        <a href="https://www.tbsdy.com" onclick="" title="土拨鼠电影"></a>
+                    </div>
+
+                    <div class="dialog-box">
+                        <p class="dialog-title" aria-hidden="true">音</p>
+                        <div class="overlay"></div>
+                        <p class="dialog-url" aria-hidden="true">MusicEnc</p>
+                        <a href="https://www.musicenc.com/" onclick="" title="MusicEnc"></a>
+                    </div>
+
+                    <div class="dialog-box">
+                        <p class="dialog-title" aria-hidden="true">刊</p>
+                        <div class="overlay"></div>
+                        <p class="dialog-url" aria-hidden="true">参考网</p>
+                        <a href="https://my.fx361.com/m_login" onclick="" title="参考网"></a>
+                    </div>
+
+                    <div class="dialog-box">
+                        <p class="dialog-title" aria-hidden="true">度</p>
+                        <div class="overlay"></div>
+                        <p class="dialog-url" aria-hidden="true">度盘解析</p>
+                        <a href="https://www.kelongwo.com/Resource_function/pan/baidu/" onclick="" title="度盘解析"></a>
+                    </div>
+
+                    <div class="dialog-box">
+                        <p class="dialog-title" aria-hidden="true">古</p>
+                        <div class="overlay"></div>
+                        <p class="dialog-url" aria-hidden="true">古诗文网</p>
+                        <a href="https://m.gushiwen.cn/" onclick="" title="古诗文网"></a>
+                    </div>
+
+                    <div class="dialog-box">
+                        <p class="dialog-title" aria-hidden="true">美</p>
+                        <div class="overlay"></div>
+                        <p class="dialog-url" aria-hidden="true">唯美女生</p>
+                        <a href="https://www.vmgirls.net/" onclick="" title="唯美女生"></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="dialog-footer">
+                <div id="close-button" class="close-click">关闭</div>
+            </div> -->
+        </dialog>
+
+        <dialog id="mine-dialog" class="dialog">
+            <div class="dialog-header">
+                <p>我的</p>
+            </div>
+            <div class="dialog-content">
+                <div id="mine-box_container" class="dialog-box_container">
+
+                    <div id="add-button" class="dialog-box">
+                        <p class="dialog-title" aria-hidden="true" style="font-size:25px">+</p>
+                        <div class="overlay"></div>
+                        <p class="dialog-url" aria-hidden="true"></p>
+                        <a onclick="" title="添加"></a>
+                    </div>
+
+                </div>
+            </div>
+
+        </dialog>
+
+        <dialog id="add-dialog" class="dialog">
+            <div class="dialog-header">
+                <p>添加书签</p>
+            </div>
+            <div class="add-dialog-content">
+                <!-- 添加书签表单 -->
+                <form id="add-bookmark-form">
+                    <!-- <h2>Add a Bookmark</h2> -->
+                    <!-- 书签名称输入框 -->
+                    <label for="name">名称:</label><br>
+                    <input type="text" id="name" name="name" autocomplete="off"><br>
+                    <!-- 书签 URL 输入框 -->
+                    <label for="url">URL:</label><br>
+                    <input type="text" id="url" name="url" autocomplete="off"><br>
+                    <!-- 添加按钮 -->
+                    <button type="submit">添加书签</button>
+                    <br>
+                </form>
+            </div>
+            <div class="dialog-footer">
+                <p id="edit-button">编辑</p>
+            </div>
+
+        </dialog>
+
+        <!-- This is the overlay element -->
+        <!-- <div id="overlay" class="modal-overlay close-click"></div> -->
+
+        <!-- This script opens and closes the dialog and shows/hides the overlay -->
+        <script>
+            const openButton = document.getElementById('open-button');
+            // const closeButton = document.getElementById('close-button');
+            // const closeButton = document.getElementById('close-button');
+            const dialog = document.getElementById('recommend-dialog');
+            // const overlay = document.getElementById('overlay');
+
+            openButton.addEventListener('click', () => {
+                // 阻止 href 的默认行为
+                event.preventDefault();
+                // 延时是为为了让用户看到页面上的反馈
+                setTimeout(function () {
+                    // 在这里执行点击事件
+                    dialog.showModal();
+                    // 最后再试试更改历史记录吧，返回不直接关网页了，但弹窗不关闭，配合另一个试试
+                    history.pushState({}, '', '/recommend');
+                    dialog.style.opacity = '1';
+                    dialog.classList.add('open');
+                }, 50);
+                // overlay.style.display = 'block';
+                /*
+                const style = window.getComputedStyle(dialog);
+                const animationName = style.animationName;
+                const animationDuration = style.animationDuration;
+                 */
+                // document.getElementById("id").style.xxx 只能获取到内嵌方式设置的样式值
+            });
+
+            /*
+            function clickHandler(event) {
+                // 处理点击事件
+            }
+            element.addEventListener('click', clickHandler);
+             */
+
+            /*
+           function animationEndHandler(event) {
+               enable = true;
+               alert("弹窗完成");
+           }
+
+           dialog.addEventListener('animationend', animationEndHandler);
+           */
+
+            function closeDialog() {
+                dialog.classList.remove('open');
+                dialog.style.opacity = '0';
+                // 关闭延时比动画长，所以点击不能马上生效
+                setTimeout(function () {
+                    // 在这里执行点击事件
+                    dialog.close();
+                }, 300);
+                // overlay.style.display = 'none';
+            }
+
+            document.addEventListener('click', function (event) {
+                // If the user clicked on the dialog's backdrop, close the dialog
+                if (event.target === dialog) {
+                    history.back();
+                    // 点击和返回一模一样，说明返回键就是 history.back()
+                    // 我是傻逼 edge 左上角就是返回键，我还搜半天
+                }
+            });
+
+            // 会在浏览器的历史记录发生变化时触发
+            window.onpopstate = function (event) {
+                // 阻止浏览器的默认行为，但并不能阻止用户关闭网页
+                // event.preventDefault();
+                if (dialog.open) closeDialog();
+            };
+
+            /*
+            function handleClick() {
+                console.log('element was clicked');
+            }
+
+            const div = document.getElementById('myDiv');
+            const button = document.getElementById('myButton');
+
+            div.addEventListener('click', handleClick);
+            button.addEventListener('click', handleClick);
+            */
+        </script>
+
+        <script>
+            const addButton = document.getElementById('add-button');
+            const addDialog = document.getElementById('add-dialog');
+                        
+            addButton.addEventListener('click', () => {
+                // 阻止 href 的默认行为
+                event.preventDefault();
+                // 延时是为为了让用户看到页面上的反馈
+                setTimeout(function () {
+                    // 在这里执行点击事件
+                    addDialog.showModal();
+                    // 最后再试试更改历史记录吧，返回不直接关网页了，但弹窗不关闭，配合另一个试试
+                    history.pushState({}, '', '/add');
+                    addDialog.style.opacity = '1';
+                    addDialog.classList.add('open');
+                }, 50);
+            });
+
+            function closeAddDialog() {
+                addDialog.classList.remove('open');
+                addDialog.style.opacity = '0';
+                // 关闭延时比动画长，所以点击不能马上生效
+                setTimeout(function () {
+                    // 在这里执行点击事件
+                    addDialog.close();
+                }, 300);
+            }
+
+            document.addEventListener('click', function (event) {
+                // If the user clicked on the dialog's backdrop, close the dialog
+                if (event.target === addDialog) {
+                    history.back();
+                }
+            });
+
+        </script>
+
+        <script>
+            const mineButton = document.getElementById('mine-button');
+            const mineDialog = document.getElementById('mine-dialog');
+                        
+            mineButton.addEventListener('click', () => {
+                // 阻止 href 的默认行为
+                event.preventDefault();
+                // 延时是为为了让用户看到页面上的反馈
+                setTimeout(function () {
+                    // 在这里执行点击事件
+                    mineDialog.showModal();
+                    // 最后再试试更改历史记录吧，返回不直接关网页了，但弹窗不关闭，配合另一个试试
+                    history.pushState({}, '', '/mine');
+                    mineDialog.style.opacity = '1';
+                    mineDialog.classList.add('open');
+                }, 50);
+            });
+
+            function closeMineDialog() {
+                mineDialog.classList.remove('open');
+                mineDialog.style.opacity = '0';
+                // 关闭延时比动画长，所以点击不能马上生效
+                setTimeout(function () {
+                    // 在这里执行点击事件
+                    mineDialog.close();
+                }, 300);
+            }
+
+            document.addEventListener('click', function (event) {
+                // If the user clicked on the dialog's backdrop, close the dialog
+                if (event.target === mineDialog) {
+                    history.back();
+                }
+            });
+
+            // 会在浏览器的历史记录发生变化时触发
+            window.onpopstate = function (event) {
+                // 阻止浏览器的默认行为，但并不能阻止用户关闭网页
+                // event.preventDefault();
+                if (dialog.open) closeDialog();
+                if (addDialog.open) closeAddDialog();
+                // 这里把上面的覆盖了
+                else if (mineDialog.open) closeMineDialog();
+            };
+
+        </script>
+
+        <!-- 自定义书签界面 -->
+        <script type="text/javascript" src="js/bookmarks.js"></script>
+
+        <!-- 头图缓存 脚本 效果不佳！-->
+        <!-- <script type="text/javascript" src="js/storage-image.js" defer></script> -->
+
+        <!-- 长按自定义网址 脚本 -->
+        <!-- <script type="text/javascript" src="js/longpress-custom.js" defer></script> -->
+
+        <!-- 有吸附效果的动态线条 脚本-->
+        <script type="text/javascript" src="js/animation/spider-web.js" defer></script>
+
+        <!-- 樱花飘落 脚本-->
+        <!-- <script type="text/javascript" src="js/animation/sakura-fall.js"></script> -->
+
+        <!-- 雪花飘落 脚本-->
+        <!-- <script src='js/animation/snowflake2.js'></script> -->
+
+        <!-- 网页鼠标点击特效 -->
+        <!-- <script type="text/javascript" src="js/animation/click-word.js"></script> -->
+
+        <!-- 检测键盘 脚本 获取窗口大小，安卓苹果不同-->
+        <!--script>
+            var originalHeight =
+        document.documentElement.clientHeight || document.body.clientHeight;
+            window.onresize = function() {
+            //键盘弹起与隐藏都会引起窗口的高度发生变化
+            var resizeHeight =
+            document.documentElement.clientHeight || document.body.clientHeight;
+            if (resizeHeight - 0 < originalHeight - 0) {
+                //当软键盘弹起，在此处操作
+              
+            } else {
+                //当软键盘收起，在此处操作
+
+            };}
+        </script-->
+
+        <!-- 处理搜索状态 默认脚本 -->
+        <script type="text/javascript" src="js/search-process.js"></script>
+
+        <!-- 引入搜索建议 默认脚本 这是via浏览器自带的，里面定义了BaiduSuggestion -->
+        <script charset="gbk" src="file:///android_asset/opensug.js"></script>
+
+        <!-- 显示搜索建议 默认脚本 -->
+        <script type="text/javascript">
+            function show(str) {
+                var searchbox = document.getElementById("search_input"); searchbox.innerHTML = str; searchbox.blur(); search();
+            } var params = {
+                "XOffset": 0,
+                "YOffset": 0,
+                "fontColor": "#666666",
+                "fontColorHI": "#FFF",
+                "fontSize": "14px",
+                "borderColor": "#eee",
+                "bgcolorHI": "#7B90E3",
+                "sugSubmit": false
+            }; BaiduSuggestion.bind("search_input", params, show);
+        </script>
+    </div>
+</body>
+
+</html>
